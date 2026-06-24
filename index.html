@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>甘南·九寨沟 自驾之旅</title>
+    <title>甘南·九寨沟 自驾之旅 · 8日行程</title>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -88,46 +88,132 @@
             color: #f5c518;
         }
 
-        /* 总览卡片 */
+        /* 路线总览 - 紧凑 */
+        .route-overview {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(6px);
+            border-radius: 16px;
+            padding: 14px 20px;
+            margin: 16px 0 18px;
+            box-shadow: 0 4px 14px rgba(0, 20, 10, 0.06);
+            border: 1px solid #d4e2d4;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 4px 2px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #1e3a2e;
+        }
+
+        .route-overview .node {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: #f4faf4;
+            padding: 4px 12px;
+            border-radius: 30px;
+            border: 1px solid #c0d4c0;
+            white-space: nowrap;
+            transition: 0.2s;
+            font-size: 0.85rem;
+        }
+
+        .route-overview .node i {
+            color: #c41a1a;
+            font-size: 0.8rem;
+        }
+
+        .route-overview .node.start i {
+            color: #2d7a2d;
+        }
+        .route-overview .node.end i {
+            color: #b8860b;
+        }
+
+        .route-overview .arrow {
+            color: #b8860b;
+            font-size: 1rem;
+            font-weight: 300;
+            padding: 0 2px;
+        }
+
+        .route-overview .node .highlight {
+            font-weight: 700;
+            color: #a61c1c;
+        }
+
+        @media (max-width: 768px) {
+            .route-overview {
+                font-size: 0.75rem;
+                padding: 10px 12px;
+                gap: 4px 2px;
+            }
+            .route-overview .node {
+                padding: 3px 8px;
+                font-size: 0.75rem;
+            }
+            .route-overview .arrow {
+                font-size: 0.8rem;
+            }
+            .route-overview .node i {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .route-overview .node {
+                padding: 2px 6px;
+                font-size: 0.65rem;
+            }
+            .route-overview .arrow {
+                font-size: 0.6rem;
+            }
+        }
+
+        /* 总览卡片 - 缩小版 */
         .summary {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 15px;
-            margin: -15px 0 30px;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
+            margin: -8px 0 24px;
             padding: 0 10px;
         }
 
         .summary-card {
             background: #fff;
-            border-radius: 16px;
-            padding: 18px 12px;
+            border-radius: 12px;
+            padding: 10px 8px;
             text-align: center;
-            box-shadow: 0 6px 16px rgba(0, 20, 10, 0.08);
-            border-left: 6px solid #c41a1a;
+            box-shadow: 0 4px 12px rgba(0, 20, 10, 0.06);
+            border-left: 4px solid #c41a1a;
             transition: 0.2s;
         }
 
         .summary-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0, 20, 10, 0.12);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 20, 10, 0.10);
         }
 
         .summary-card i {
-            font-size: 2rem;
+            font-size: 1.4rem;
             color: #c41a1a;
-            margin-bottom: 6px;
+            margin-bottom: 2px;
         }
 
         .summary-card .num {
-            font-size: 1.8rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: #1e3a2e;
+            line-height: 1.2;
         }
 
         .summary-card .label {
-            font-size: 0.9rem;
+            font-size: 0.7rem;
             color: #4a5f4a;
-            margin-top: 2px;
+            margin-top: 0px;
+            letter-spacing: 0.3px;
         }
 
         /* 时间线 */
@@ -301,7 +387,7 @@
                 font-size: 2rem;
             }
             .summary {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(3, 1fr);
             }
             .day-body .cost-grid {
                 flex-direction: column;
@@ -316,7 +402,7 @@
                 gap: 6px;
             }
             .summary {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
             .day-body {
                 padding: 14px 16px;
@@ -326,6 +412,7 @@
             }
         }
 
+        /* 装饰经幡动画 */
         .prayer-flags {
             display: flex;
             justify-content: center;
@@ -373,185 +460,189 @@
         <!-- 头部 -->
         <div class="header">
             <h1>🏔️ 甘南 · 九寨沟</h1>
-            <div class="sub">秘境自驾 · 9日沉浸之旅</div>
+            <div class="sub">秘境自驾 · 8日沉浸之旅</div>
             <div class="prayer-flags">
                 <span></span><span></span><span></span><span></span><span></span>
             </div>
             <div class="meta">
-                <span><i class="fas fa-calendar-alt"></i> 7月 · 9天8晚</span>
+                <span><i class="fas fa-calendar-alt"></i> 7月11日-18日 · 8天7晚</span>
                 <span><i class="fas fa-car"></i> 成都租车 · 兰州还车</span>
-                <span><i class="fas fa-route"></i> 约1400 km</span>
+                <span><i class="fas fa-route"></i> 约1500 km</span>
                 <span><i class="fas fa-users"></i> 与父母同行</span>
             </div>
         </div>
 
-        <!-- 总览卡片 -->
+        <!-- 路线总览 -->
+        <div class="route-overview">
+            <span class="node start"><i class="fas fa-home"></i> 临汾/北京</span>
+            <span class="arrow">→</span>
+            <span class="node"><i class="fas fa-city"></i> 成都</span>
+            <span class="arrow">→</span>
+            <span class="node"><i class="fas fa-museum"></i> 三星堆</span>
+            <span class="arrow">→</span>
+            <span class="node"><i class="fas fa-water"></i> 九寨沟</span>
+            <span class="arrow">→</span>
+            <span class="node"><i class="fas fa-mountain"></i> 唐克</span>
+            <span class="arrow">→</span>
+            <span class="node"><i class="fas fa-mountain"></i> 扎尕那</span>
+            <span class="arrow">→</span>
+            <span class="node"><i class="fas fa-temple"></i> 夏河</span>
+            <span class="arrow">→</span>
+            <span class="node"><i class="fas fa-city"></i> 兰州</span>
+            <span class="arrow">→</span>
+            <span class="node end"><i class="fas fa-undo-alt"></i> 临汾/北京</span>
+        </div>
+
+        <!-- 总览卡片（缩小版） -->
         <div class="summary">
-            <div class="summary-card"><i class="fas fa-map-pin"></i><div class="num">9</div><div class="label">游玩日</div></div>
-            <div class="summary-card"><i class="fas fa-mountain"></i><div class="num">12+</div><div class="label">核心景点</div></div>
+            <div class="summary-card"><i class="fas fa-map-pin"></i><div class="num">8</div><div class="label">游玩日</div></div>
+            <div class="summary-card"><i class="fas fa-mountain"></i><div class="num">10+</div><div class="label">核心景点</div></div>
             <div class="summary-card"><i class="fas fa-clock"></i><div class="num">~5h</div><div class="label">日均车程</div></div>
-            <div class="summary-card"><i class="fas fa-ticket-alt"></i><div class="num">~¥540</div><div class="label">门票/人</div></div>
-            <div class="summary-card"><i class="fas fa-bed"></i><div class="num">8</div><div class="label">住宿晚数</div></div>
+            <div class="summary-card"><i class="fas fa-ticket-alt"></i><div class="num">~¥330</div><div class="label">门票/人</div></div>
+            <div class="summary-card"><i class="fas fa-bed"></i><div class="num">7</div><div class="label">住宿晚数</div></div>
         </div>
 
         <!-- 行程时间线 -->
         <div class="timeline">
 
-            <!-- Day 1：抵达成都 → 取车 → 游玩成都 → 夜宿广汉（三星堆） -->
+            <!-- Day 1: 7月11日 周六 -->
             <div class="day-card">
                 <div class="day-header">
                     <span class="day-badge">Day 1</span>
-                    <span class="date">7月X日 · 星期X</span>
-                    <div class="route"><i class="fas fa-plane-arrival"></i> 各地 → 成都 <span class="arrow">⟶</span> <i class="fas fa-museum"></i> 广汉·三星堆</div>
+                    <span class="date">7月11日 · 周六</span>
+                    <div class="route"><i class="fas fa-plane-arrival"></i> 各地 → 成都 <span class="arrow">⟶</span> <i class="fas fa-museum"></i> 三星堆</div>
                 </div>
                 <div class="day-body">
-                    <div class="item"><span class="label"><i class="fas fa-train"></i> 交通</span><div class="value">高铁抵达成都</div></div>
-                    <div class="item"><span class="label"><i class="fas fa-car"></i> 租车</span><div class="value">办理SUV租车手续</div></div>
+                    <div class="item"><span class="label"><i class="fas fa-train"></i> 交通方式</span><div class="value">高铁抵达成都</div></div>
+                    <div class="item"><span class="label"><i class="fas fa-car"></i> 租车</span><div class="value">办理SUV租车手续（建议高底盘）</div></div>
                     <div class="item full-width"><span class="label"><i class="fas fa-umbrella-beach"></i> 游玩攻略</span><div class="value">
-                        • 下午游览 <span class="highlight">宽窄巷子</span> 或 <span class="highlight">锦里</span>，品尝成都小吃。<br>
-                        • 傍晚从成都出发，自驾前往广汉市（约1-1.5小时，G5京昆高速），<strong>夜宿三星堆附近酒店</strong>。
+                        • 下午游览 <span class="highlight">宽窄巷子</span> 或 <span class="highlight">锦里</span>，品尝成都火锅。<br>
+                        • 傍晚自驾前往广汉市（约1-1.5小时），<strong>夜宿三星堆附近酒店</strong>。
                     </div></div>
-                    <div class="item"><span class="label"><i class="fas fa-hotel"></i> 住宿</span><div class="value">广汉市（三星堆附近）</div></div>
-                    <div class="item"><span class="label"><i class="fas fa-coins"></i> 费用</span><div class="value"><span class="cost-grid"><span><i class="fas fa-gas-pump"></i> 油费 ￥40</span><span><i class="fas fa-road"></i> 路费 ￥20</span><span><i class="fas fa-ticket-alt"></i> 门票 —</span></span></div></div>
+                    <div class="item"><span class="label"><i class="fas fa-hotel"></i> 住宿</span><div class="value">三星堆（广汉市）</div></div>
+                    <div class="item"><span class="label"><i class="fas fa-coins"></i> 费用估算</span><div class="value"><span class="cost-grid"><span><i class="fas fa-gas-pump"></i> 油费+租车 ¥1,500</span><span><i class="fas fa-road"></i> 路费 ¥2,000</span><span><i class="fas fa-ticket-alt"></i> 门票 —</span></span></div></div>
                 </div>
             </div>
 
-            <!-- Day 2：三星堆游览 → 下午出发前往九寨沟 -->
+            <!-- Day 2: 7月12日 周日 -->
             <div class="day-card">
                 <div class="day-header">
                     <span class="day-badge">Day 2</span>
-                    <span class="date">7月X+1日 · 星期X</span>
+                    <span class="date">7月12日 · 周日</span>
                     <div class="route"><i class="fas fa-museum"></i> 三星堆 <span class="arrow">⟶</span> <i class="fas fa-water"></i> 九寨沟</div>
                 </div>
                 <div class="day-body">
-                    <div class="item"><span class="label"><i class="fas fa-car"></i> 交通方式</span><div class="value">自驾 · 九环线东线</div></div>
-                    <div class="item"><span class="label"><i class="fas fa-clock"></i> 车程</span><div class="value">约380km · 6.5~7.5小时</div></div>
-                    <div class="item full-width"><span class="label"><i class="fas fa-road"></i> 路况及路线</span><div class="value"><span class="highlight">广汉→绵阳→江油→平武→九寨沟</span>，后半段为盘山公路，谨慎驾驶。</div></div>
+                    <div class="item"><span class="label"><i class="fas fa-car"></i> 交通方式</span><div class="value">自驾 · 九绵高速</div></div>
+                    <div class="item"><span class="label"><i class="fas fa-clock"></i> 车程</span><div class="value">约400km · 4.5~6小时</div></div>
+                    <div class="item full-width"><span class="label"><i class="fas fa-road"></i> 路况及路线</span><div class="value"><span class="highlight">九绵高速（G8513）</span>，全程高等级公路，隧道多，限速80-100km/h。</div></div>
                     <div class="item full-width"><span class="label"><i class="fas fa-umbrella-beach"></i> 游玩攻略</span><div class="value">
                         <span class="must-see">⭐ 古蜀文明</span><br>
-                        • <strong>上午 8:30</strong> 进入<span class="highlight">三星堆博物馆</span>游览（约3-4小时，门票¥72/人，需提前公众号预约）。<br>
-                        • <strong>13:00前</strong> 出发前往九寨沟，预计晚上8-9点抵达沟口。<br>
-                        • <strong>⚠️ 九寨沟门票需提前7-14天在官方渠道预约！</strong>
+                        • <strong>上午</strong> 游览<span class="highlight">三星堆博物馆</span>（门票¥72/人，需提前公众号预约）。<br>
+                        • <strong>下午</strong> 出发前往九寨沟，沿途服务区休息2-3次，晚上抵达沟口。<br>
+                        • <strong>⚠️ 务必确认次日九寨沟门票已预约！</strong>
                     </div></div>
                     <div class="item"><span class="label"><i class="fas fa-hotel"></i> 住宿</span><div class="value">九寨沟沟口</div></div>
-                    <div class="item"><span class="label"><i class="fas fa-coins"></i> 费用</span><div class="value"><span class="cost-grid"><span><i class="fas fa-gas-pump"></i> 油费 ￥230</span><span><i class="fas fa-road"></i> 路费 ￥180</span><span><i class="fas fa-ticket-alt"></i> 门票 ￥72/人</span></span></div></div>
+                    <div class="item"><span class="label"><i class="fas fa-coins"></i> 费用估算</span><div class="value"><span class="cost-grid"><span><i class="fas fa-gas-pump"></i> 油费+租车 ¥300</span><span><i class="fas fa-road"></i> 路费 ¥200</span><span><i class="fas fa-ticket-alt"></i> 门票 ¥300（3人）</span></span></div></div>
                 </div>
             </div>
 
-            <!-- Day 3：九寨沟全天 -->
+            <!-- Day 3: 7月13日 周一 -->
             <div class="day-card">
                 <div class="day-header">
                     <span class="day-badge">Day 3</span>
-                    <span class="date">7月X+2日 · 星期X</span>
+                    <span class="date">7月13日 · 周一</span>
                     <div class="route"><i class="fas fa-tree"></i> 九寨沟全天游览</div>
                 </div>
                 <div class="day-body">
                     <div class="item"><span class="label"><i class="fas fa-bus"></i> 交通方式</span><div class="value">景区观光车</div></div>
                     <div class="item"><span class="label"><i class="fas fa-clock"></i> 游玩时长</span><div class="value">全天 · 约8小时</div></div>
-                    <div class="item full-width"><span class="label"><i class="fas fa-umbrella-beach"></i> 游玩攻略</span><div class="value"><span class="must-see">⭐ 世界自然遗产</span><br>按“Y”字形路线：<br>• <strong>上午</strong> 则查洼沟（长海、五彩池）<br>• <strong>中午</strong> 日则沟（五花海、珍珠滩瀑布、镜海）<br>• <strong>下午</strong> 树正沟（树正群海、盆景滩）<br><span class="highlight">门票¥190 + 观光车¥90 = ¥280/人</span></div></div>
+                    <div class="item full-width"><span class="label"><i class="fas fa-umbrella-beach"></i> 游玩攻略</span><div class="value"><span class="must-see">⭐ 世界自然遗产</span><br>按“Y”字形路线：<br>• <strong>上午</strong> 则查洼沟（长海、五彩池）<br>• <strong>中午</strong> 日则沟（五花海、珍珠滩瀑布、镜海）<br>• <strong>下午</strong> 树正沟（树正群海、盆景滩）<br><span class="highlight">门票¥190 + 观光车¥90 = ¥280/人</span><br><strong>⚠️ 务必提前7-14天在“阿坝旅游网”预约！</strong></div></div>
                     <div class="item"><span class="label"><i class="fas fa-hotel"></i> 住宿</span><div class="value">九寨沟沟口</div></div>
-                    <div class="item"><span class="label"><i class="fas fa-coins"></i> 费用</span><div class="value"><span class="cost-grid"><span><i class="fas fa-gas-pump"></i> 油费 —</span><span><i class="fas fa-road"></i> 路费 —</span><span><i class="fas fa-ticket-alt"></i> 门票 ￥280/人</span></span></div></div>
+                    <div class="item"><span class="label"><i class="fas fa-coins"></i> 费用估算</span><div class="value"><span class="cost-grid"><span><i class="fas fa-gas-pump"></i> 油费+租车 —</span><span><i class="fas fa-road"></i> 路费 —</span><span><i class="fas fa-ticket-alt"></i> 门票 ¥840（3人）</span></span></div></div>
                 </div>
             </div>
 
-            <!-- Day 4：九寨沟 → 唐克 -->
+            <!-- Day 4: 7月14日 周二 -->
             <div class="day-card">
                 <div class="day-header">
                     <span class="day-badge">Day 4</span>
-                    <span class="date">7月X+3日 · 星期X</span>
+                    <span class="date">7月14日 · 周二</span>
                     <div class="route"><i class="fas fa-arrow-right"></i> 九寨沟 → 唐克 <span class="arrow">⟶</span> <i class="fas fa-water"></i> 九曲黄河第一湾</div>
                 </div>
                 <div class="day-body">
                     <div class="item"><span class="label"><i class="fas fa-car"></i> 交通方式</span><div class="value">自驾 · 九若路</div></div>
                     <div class="item"><span class="label"><i class="fas fa-clock"></i> 车程</span><div class="value">约270km · 5~6小时</div></div>
-                    <div class="item full-width"><span class="label"><i class="fas fa-road"></i> 路况及路线</span><div class="value"><span class="highlight">九若路</span>（九寨沟→若尔盖→唐克），盘山公路，海拔渐升至3000米以上。</div></div>
-                    <div class="item full-width"><span class="label"><i class="fas fa-umbrella-beach"></i> 游玩攻略</span><div class="value">上午出发，下午抵达唐克，傍晚前往 <span class="highlight">九曲黄河第一湾</span> 观日落（门票+扶梯 ¥105/人）。</div></div>
+                    <div class="item full-width"><span class="label"><i class="fas fa-road"></i> 路况及路线</span><div class="value"><span class="highlight">九若路</span>（九寨沟→若尔盖→唐克），全程盘山公路，双向两车道，弯多坡陡，海拔渐升至3000米以上，谨慎驾驶。</div></div>
+                    <div class="item full-width"><span class="label"><i class="fas fa-umbrella-beach"></i> 游玩攻略</span><div class="value">上午出发，沿途从高山森林过渡到若尔盖草原。下午抵达唐克，入住后<span class="highlight">傍晚前往九曲黄河第一湾</span>，乘观光扶梯登顶观景台，等待壮丽黄河日落。<br>门票+扶梯 ¥105/人。</div></div>
                     <div class="item"><span class="label"><i class="fas fa-hotel"></i> 住宿</span><div class="value">唐克镇</div></div>
-                    <div class="item"><span class="label"><i class="fas fa-coins"></i> 费用</span><div class="value"><span class="cost-grid"><span><i class="fas fa-gas-pump"></i> 油费 ￥160</span><span><i class="fas fa-road"></i> 路费 ￥0</span><span><i class="fas fa-ticket-alt"></i> 门票 ￥105/人</span></span></div></div>
+                    <div class="item"><span class="label"><i class="fas fa-coins"></i> 费用估算</span><div class="value"><span class="cost-grid"><span><i class="fas fa-gas-pump"></i> 油费+租车 ¥200</span><span><i class="fas fa-road"></i> 路费 —</span><span><i class="fas fa-ticket-alt"></i> 门票 ¥300（3人）</span></span></div></div>
                 </div>
             </div>
 
-            <!-- Day 5：唐克 → 郎木寺 -->
+            <!-- Day 5: 7月15日 周三 -->
             <div class="day-card">
                 <div class="day-header">
                     <span class="day-badge">Day 5</span>
-                    <span class="date">7月X+4日 · 星期X</span>
-                    <div class="route"><i class="fas fa-arrow-right"></i> 唐克 → 郎木寺 <span class="arrow">⟶</span> <i class="fas fa-church"></i> 郎木寺镇</div>
+                    <span class="date">7月15日 · 周三</span>
+                    <div class="route"><i class="fas fa-arrow-right"></i> 唐克 → 扎尕那 <span class="arrow">⟶</span> <i class="fas fa-mountain"></i> 扎尕那</div>
                 </div>
                 <div class="day-body">
                     <div class="item"><span class="label"><i class="fas fa-car"></i> 交通方式</span><div class="value">自驾 · 248国道</div></div>
-                    <div class="item"><span class="label"><i class="fas fa-clock"></i> 车程</span><div class="value">约140km · 2~2.5小时</div></div>
-                    <div class="item full-width"><span class="label"><i class="fas fa-road"></i> 路况及路线</span><div class="value">248国道，路况良好，穿行若尔盖草原。</div></div>
-                    <div class="item full-width"><span class="label"><i class="fas fa-umbrella-beach"></i> 游玩攻略</span><div class="value">上午休整，中午出发，下午游览 <span class="highlight">四川格尔底寺</span>（¥30/人），感受“一镇跨两省”。</div></div>
-                    <div class="item"><span class="label"><i class="fas fa-hotel"></i> 住宿</span><div class="value">郎木寺镇</div></div>
-                    <div class="item"><span class="label"><i class="fas fa-coins"></i> 费用</span><div class="value"><span class="cost-grid"><span><i class="fas fa-gas-pump"></i> 油费 ￥85</span><span><i class="fas fa-road"></i> 路费 ￥20</span><span><i class="fas fa-ticket-alt"></i> 门票 ￥30/人</span></span></div></div>
+                    <div class="item"><span class="label"><i class="fas fa-clock"></i> 车程</span><div class="value">约200km · 3小时</div></div>
+                    <div class="item full-width"><span class="label"><i class="fas fa-road"></i> 路况及路线</span><div class="value">248国道，路况良好，穿行若尔盖大草原。</div></div>
+                    <div class="item full-width"><span class="label"><i class="fas fa-umbrella-beach"></i> 游玩攻略</span><div class="value">上午可睡懒觉休整，或在唐克镇周边逛逛；中午出发前往扎尕那，下午抵达后游览<span class="highlight">仙女沟</span>，入住景区民宿。<br><strong>🏡 扎尕那住宿务必提前1-2周预订！</strong></div></div>
+                    <div class="item"><span class="label"><i class="fas fa-hotel"></i> 住宿</span><div class="value">扎尕那（达日/代巴村）</div></div>
+                    <div class="item"><span class="label"><i class="fas fa-coins"></i> 费用估算</span><div class="value"><span class="cost-grid"><span><i class="fas fa-gas-pump"></i> 油费+租车 ¥150</span><span><i class="fas fa-road"></i> 路费 ¥30</span><span><i class="fas fa-ticket-alt"></i> 门票 ¥300（3人）</span></span></div></div>
                 </div>
             </div>
 
-            <!-- Day 6：郎木寺 → 扎尕那 -->
+            <!-- Day 6: 7月16日 周四 -->
             <div class="day-card">
                 <div class="day-header">
                     <span class="day-badge">Day 6</span>
-                    <span class="date">7月X+5日 · 星期X</span>
-                    <div class="route"><i class="fas fa-arrow-right"></i> 郎木寺 → 扎尕那 <span class="arrow">⟶</span> <i class="fas fa-mountain"></i> 扎尕那</div>
-                </div>
-                <div class="day-body">
-                    <div class="item"><span class="label"><i class="fas fa-car"></i> 交通方式</span><div class="value">自驾 · 248国道</div></div>
-                    <div class="item"><span class="label"><i class="fas fa-clock"></i> 车程</span><div class="value">约95km · 1.5~2小时</div></div>
-                    <div class="item full-width"><span class="label"><i class="fas fa-road"></i> 路况及路线</span><div class="value">248国道，路况良好。</div></div>
-                    <div class="item full-width"><span class="label"><i class="fas fa-umbrella-beach"></i> 游玩攻略</span><div class="value">上午游览 <span class="highlight">甘肃赛赤寺</span>（¥30/人），可去 <span class="highlight">纳摩大峡谷</span> 轻徒步。下午抵达扎尕那，入住民宿。</div></div>
-                    <div class="item"><span class="label"><i class="fas fa-hotel"></i> 住宿</span><div class="value">扎尕那（达日/代巴村）</div></div>
-                    <div class="item"><span class="label"><i class="fas fa-coins"></i> 费用</span><div class="value"><span class="cost-grid"><span><i class="fas fa-gas-pump"></i> 油费 ￥55</span><span><i class="fas fa-road"></i> 路费 ￥10</span><span><i class="fas fa-ticket-alt"></i> 门票 赛赤寺¥30 + 扎尕那¥80</span></span></div></div>
-                </div>
-            </div>
-
-            <!-- Day 7：扎尕那全天 -->
-            <div class="day-card">
-                <div class="day-header">
-                    <span class="day-badge">Day 7</span>
-                    <span class="date">7月X+6日 · 星期X</span>
+                    <span class="date">7月16日 · 周四</span>
                     <div class="route"><i class="fas fa-mountain"></i> 扎尕那全天深度游</div>
                 </div>
                 <div class="day-body">
                     <div class="item"><span class="label"><i class="fas fa-walking"></i> 交通方式</span><div class="value">景区内步行</div></div>
                     <div class="item"><span class="label"><i class="fas fa-clock"></i> 游玩时长</span><div class="value">全天</div></div>
-                    <div class="item full-width"><span class="label"><i class="fas fa-umbrella-beach"></i> 游玩攻略</span><div class="value"><span class="must-see">⭐ 人间伊甸园</span><br>• 早起 <span class="highlight">达日观景台</span> 拍晨雾日出。<br>• 上午 <span class="highlight">仙女滩</span> 轻徒步。<br>• 下午可游览 <span class="highlight">润吾沟</span> 或 <span class="highlight">业日村观景台</span>。</div></div>
+                    <div class="item full-width"><span class="label"><i class="fas fa-umbrella-beach"></i> 游玩攻略</span><div class="value"><span class="must-see">⭐ 人间伊甸园</span><br>• <strong>早起（约5:30）</strong> 前往 <span class="highlight">达日观景台</span> 拍摄晨雾与日出。<br>• 上午 <span class="highlight">仙女滩</span> 轻徒步（往返约2小时），欣赏扎尕那全景。<br>• 下午可游览 <span class="highlight">润吾沟</span>（原生态峡谷，木栈道徒步约3小时，量力而行）或 <span class="highlight">业日村观景台</span>（石门观景台）。<br>门票¥80/人（3天有效）。</div></div>
                     <div class="item"><span class="label"><i class="fas fa-hotel"></i> 住宿</span><div class="value">扎尕那</div></div>
-                    <div class="item"><span class="label"><i class="fas fa-coins"></i> 费用</span><div class="value"><span class="cost-grid"><span><i class="fas fa-gas-pump"></i> 油费 —</span><span><i class="fas fa-road"></i> 路费 —</span><span><i class="fas fa-ticket-alt"></i> 门票 已含</span></span></div></div>
+                    <div class="item"><span class="label"><i class="fas fa-coins"></i> 费用估算</span><div class="value"><span class="cost-grid"><span><i class="fas fa-gas-pump"></i> 油费+租车 ¥50</span><span><i class="fas fa-road"></i> 路费 ¥10</span><span><i class="fas fa-ticket-alt"></i> 门票 —</span></span></div></div>
                 </div>
             </div>
 
-            <!-- Day 8：扎尕那 → 夏河（洛克之路） -->
+            <!-- Day 7: 7月17日 周五 -->
             <div class="day-card">
                 <div class="day-header">
-                    <span class="day-badge">Day 8</span>
-                    <span class="date">7月X+7日 · 星期X</span>
+                    <span class="day-badge">Day 7</span>
+                    <span class="date">7月17日 · 周五</span>
                     <div class="route"><i class="fas fa-arrow-right"></i> 扎尕那 → 夏河 <span class="arrow">⟶</span> <i class="fas fa-temple"></i> 夏河县</div>
                 </div>
                 <div class="day-body">
                     <div class="item"><span class="label"><i class="fas fa-car"></i> 交通方式</span><div class="value">自驾 · <span class="highlight">洛克之路</span></div></div>
                     <div class="item"><span class="label"><i class="fas fa-clock"></i> 车程</span><div class="value">约250km · 5~6小时</div></div>
-                    <div class="item full-width"><span class="label"><i class="fas fa-road"></i> 路况及路线</span><div class="value"><span class="must-see">⚠️ 必须高底盘SUV/硬派越野！</span><br>光盖山段非铺装砂石路，炮弹坑、碎石、临崖急弯，全程无信号，出发前加满油。</div></div>
-                    <div class="item full-width"><span class="label"><i class="fas fa-umbrella-beach"></i> 游玩攻略</span><div class="value">穿越洛克之路，欣赏光盖山石峰、高山草甸。下午抵达夏河，傍晚转<span class="highlight">拉卜楞寺</span>转经筒（免费）。</div></div>
+                    <div class="item full-width"><span class="label"><i class="fas fa-road"></i> 路况及路线</span><div class="value"><span class="must-see">⚠️ 必须高底盘SUV/硬派越野！</span><br>扎尕那→扎古录镇→合作→夏河。光盖山段约65km非铺装砂石路，炮弹坑、碎石、临崖急弯，<strong>全程无手机信号</strong>。出发前在迭部县加满油，下载离线地图。</div></div>
+                    <div class="item full-width"><span class="label"><i class="fas fa-umbrella-beach"></i> 游玩攻略</span><div class="value">上午穿越洛克之路，沿途欣赏光盖山石峰、高山草甸、峡谷风光，最高垭口海拔约4200米。下午抵达夏河县，傍晚可逛 <span class="highlight">拉卜楞寺</span> 外围转经筒长廊（免费）。</div></div>
                     <div class="item"><span class="label"><i class="fas fa-hotel"></i> 住宿</span><div class="value">夏河县</div></div>
-                    <div class="item"><span class="label"><i class="fas fa-coins"></i> 费用</span><div class="value"><span class="cost-grid"><span><i class="fas fa-gas-pump"></i> 油费 ￥150</span><span><i class="fas fa-road"></i> 路费 ￥30</span><span><i class="fas fa-ticket-alt"></i> 门票 —</span></span></div></div>
+                    <div class="item"><span class="label"><i class="fas fa-coins"></i> 费用估算</span><div class="value"><span class="cost-grid"><span><i class="fas fa-gas-pump"></i> 油费+租车 ¥200</span><span><i class="fas fa-road"></i> 路费 ¥30</span><span><i class="fas fa-ticket-alt"></i> 门票 —</span></span></div></div>
                 </div>
             </div>
 
-            <!-- Day 9：夏河 → 兰州 → 返程 -->
+            <!-- Day 8: 7月18日 周六 -->
             <div class="day-card">
                 <div class="day-header">
-                    <span class="day-badge">Day 9</span>
-                    <span class="date">7月X+8日 · 星期X</span>
+                    <span class="day-badge">Day 8</span>
+                    <span class="date">7月18日 · 周六</span>
                     <div class="route"><i class="fas fa-arrow-right"></i> 夏河 → 兰州 <span class="arrow">⟶</span> <i class="fas fa-train"></i> 高铁返程</div>
                 </div>
                 <div class="day-body">
                     <div class="item"><span class="label"><i class="fas fa-car"></i> 交通方式</span><div class="value">自驾 + 高铁</div></div>
                     <div class="item"><span class="label"><i class="fas fa-clock"></i> 车程</span><div class="value">约230km · 3.5~4小时</div></div>
                     <div class="item full-width"><span class="label"><i class="fas fa-road"></i> 路况及路线</span><div class="value">312国道 → 兰海高速，路况良好。</div></div>
-                    <div class="item full-width"><span class="label"><i class="fas fa-umbrella-beach"></i> 游玩攻略</span><div class="value">上午游览 <span class="highlight">甘加秘境</span>（¥50-80/人）或 <span class="highlight">桑科草原</span>（免费）。中午返回兰州，下午还车返程。</div></div>
+                    <div class="item full-width"><span class="label"><i class="fas fa-umbrella-beach"></i> 游玩攻略</span><div class="value">上午游览 <span class="highlight">甘加秘境</span>（距夏河县城约30km，门票¥50-80/人，含八角古城、白石崖、甘加草原）或 <span class="highlight">桑科草原</span>（免费）。中午出发返回兰州，下午还车，乘坐高铁返程（16:00从兰州西去西安北换乘）。</div></div>
                     <div class="item"><span class="label"><i class="fas fa-hotel"></i> 住宿</span><div class="value">—</div></div>
-                    <div class="item"><span class="label"><i class="fas fa-coins"></i> 费用</span><div class="value"><span class="cost-grid"><span><i class="fas fa-gas-pump"></i> 油费 ￥140</span><span><i class="fas fa-road"></i> 路费 ￥110</span><span><i class="fas fa-ticket-alt"></i> 门票 ￥50-80/人</span></span></div></div>
+                    <div class="item"><span class="label"><i class="fas fa-coins"></i> 费用估算</span><div class="value"><span class="cost-grid"><span><i class="fas fa-gas-pump"></i> 油费+租车 ¥150</span><span><i class="fas fa-road"></i> 路费 ¥2,000</span><span><i class="fas fa-ticket-alt"></i> 门票 ¥300（3人）</span></span></div></div>
                 </div>
             </div>
 
@@ -560,7 +651,7 @@
         <!-- 底栏 -->
         <div class="footer">
             <i class="fas fa-heart" style="color:#c41a1a;"></i> 祝旅途愉快 · 与父母共享美好时光 <i class="fas fa-heart" style="color:#c41a1a;"></i><br>
-            <span style="font-size:0.8rem; opacity:0.7;">行程设计基于2026年7月旺季信息，实际费用及开放时间以现场为准</span>
+            <span style="font-size:0.8rem; opacity:0.7;">行程基于2026年7月旺季信息，费用为估算值，实际以现场为准</span>
         </div>
     </div>
 </body>
