@@ -3,15 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>甘南·九寨沟 自驾之旅 · 7日行程</title>
-    <!-- Font Awesome for icons -->
+    <title>甘南·九寨沟 自驾之旅 · 8日行程</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin:0; padding:0; box-sizing:border-box; }
         body {
             font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
             background: #eef4ee;
@@ -19,18 +14,14 @@
             color: #1e3a2e;
             padding: 20px;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        /* 头部 */
+        .container { max-width:1200px; margin:0 auto; }
         .header {
             text-align: center;
             padding: 30px 20px 25px;
             background: linear-gradient(135deg, #a61c1c 0%, #c41a1a 70%, #b31b1b 100%);
             color: #f9e8b4;
             border-radius: 20px 20px 0 0;
-            box-shadow: 0 8px 20px rgba(160, 40, 40, 0.3);
+            box-shadow: 0 8px 20px rgba(160,40,40,0.3);
             position: relative;
             overflow: hidden;
         }
@@ -44,19 +35,8 @@
             right: 20px;
             color: #f9e8b4;
         }
-        .header h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-        }
-        .header .sub {
-            font-size: 1.2rem;
-            margin-top: 8px;
-            opacity: 0.9;
-            font-weight: 300;
-            letter-spacing: 4px;
-        }
+        .header h1 { font-size:2.8rem; font-weight:700; letter-spacing:2px; text-shadow:0 2px 8px rgba(0,0,0,0.3); }
+        .header .sub { font-size:1.2rem; margin-top:8px; opacity:0.9; font-weight:300; letter-spacing:4px; }
         .header .meta {
             display: flex;
             justify-content: center;
@@ -64,29 +44,22 @@
             gap: 30px;
             margin-top: 16px;
             font-size: 1rem;
-            background: rgba(255, 215, 140, 0.15);
+            background: rgba(255,215,140,0.15);
             padding: 10px 20px;
             border-radius: 40px;
             backdrop-filter: blur(2px);
-            border: 1px solid rgba(255, 215, 140, 0.2);
+            border: 1px solid rgba(255,215,140,0.2);
         }
-        .header .meta span {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .header .meta i {
-            color: #f5c518;
-        }
+        .header .meta span { display:inline-flex; align-items:center; gap:6px; }
+        .header .meta i { color:#f5c518; }
 
-        /* 路线总览 */
         .route-overview {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255,255,255,0.85);
             backdrop-filter: blur(6px);
             border-radius: 16px;
             padding: 14px 20px;
             margin: 16px 0 18px;
-            box-shadow: 0 4px 14px rgba(0, 20, 10, 0.06);
+            box-shadow: 0 4px 14px rgba(0,20,10,0.06);
             border: 1px solid #d4e2d4;
             display: flex;
             flex-wrap: wrap;
@@ -108,26 +81,17 @@
             white-space: nowrap;
             font-size: 0.85rem;
         }
-        .route-overview .node i {
-            color: #c41a1a;
-            font-size: 0.8rem;
-        }
-        .route-overview .node.start i { color: #2d7a2d; }
-        .route-overview .node.end i { color: #b8860b; }
-        .route-overview .arrow {
-            color: #b8860b;
-            font-size: 1rem;
-            font-weight: 300;
-            padding: 0 2px;
-        }
-        @media (max-width: 768px) {
-            .route-overview { font-size: 0.75rem; padding: 10px 12px; }
-            .route-overview .node { padding: 3px 8px; font-size: 0.75rem; }
-            .route-overview .arrow { font-size: 0.8rem; }
-            .route-overview .node i { display: none; }
+        .route-overview .node i { color:#c41a1a; font-size:0.8rem; }
+        .route-overview .node.start i { color:#2d7a2d; }
+        .route-overview .node.end i { color:#b8860b; }
+        .route-overview .arrow { color:#b8860b; font-size:1rem; font-weight:300; padding:0 2px; }
+        @media (max-width:768px) {
+            .route-overview { font-size:0.75rem; padding:10px 12px; }
+            .route-overview .node { padding:3px 8px; font-size:0.75rem; }
+            .route-overview .arrow { font-size:0.8rem; }
+            .route-overview .node i { display:none; }
         }
 
-        /* 总览卡片 - 缩小版 */
         .summary {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -143,18 +107,13 @@
             box-shadow: 0 4px 12px rgba(0,20,10,0.06);
             border-left: 4px solid #c41a1a;
         }
-        .summary-card i { font-size: 1.4rem; color: #c41a1a; margin-bottom: 2px; }
-        .summary-card .num { font-size: 1.3rem; font-weight: 700; color: #1e3a2e; }
-        .summary-card .label { font-size: 0.7rem; color: #4a5f4a; }
+        .summary-card i { font-size:1.4rem; color:#c41a1a; margin-bottom:2px; }
+        .summary-card .num { font-size:1.3rem; font-weight:700; color:#1e3a2e; }
+        .summary-card .label { font-size:0.7rem; color:#4a5f4a; }
 
-        /* 时间线 */
-        .timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
+        .timeline { display:flex; flex-direction:column; gap:24px; }
         .day-card {
-            background: #ffffff;
+            background: #fff;
             border-radius: 20px;
             box-shadow: 0 8px 24px rgba(0,20,10,0.08);
             overflow: hidden;
@@ -178,21 +137,10 @@
             border-radius: 40px;
             white-space: nowrap;
         }
-        .day-header .date {
-            font-weight: 600;
-            color: #1e3a2e;
-            font-size: 1.1rem;
-        }
-        .day-header .route {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 500;
-            color: #2d5a2d;
-            flex-wrap: wrap;
-        }
-        .day-header .route i { color: #c41a1a; font-size: 1.2rem; }
-        .day-header .route .arrow { color: #b8860b; }
+        .day-header .date { font-weight:600; color:#1e3a2e; font-size:1.1rem; }
+        .day-header .route { display:flex; align-items:center; gap:10px; font-weight:500; color:#2d5a2d; flex-wrap:wrap; }
+        .day-header .route i { color:#c41a1a; font-size:1.2rem; }
+        .day-header .route .arrow { color:#b8860b; }
 
         .day-body {
             padding: 20px 24px 24px;
@@ -200,87 +148,70 @@
             grid-template-columns: 1fr 1fr;
             gap: 18px 30px;
         }
-        .day-body .item {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
+        .day-body .item { display:flex; flex-direction:column; gap:4px; }
         .day-body .item .label {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #6a7f6a;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            font-size:0.8rem;
+            text-transform:uppercase;
+            letter-spacing:0.5px;
+            color:#6a7f6a;
+            font-weight:600;
+            display:flex;
+            align-items:center;
+            gap:6px;
         }
-        .day-body .item .label i { width: 18px; color: #c41a1a; }
+        .day-body .item .label i { width:18px; color:#c41a1a; }
         .day-body .item .value {
-            font-size: 0.98rem;
-            line-height: 1.5;
-            color: #1e3a2e;
-            padding-left: 26px;
+            font-size:0.98rem;
+            line-height:1.5;
+            color:#1e3a2e;
+            padding-left:26px;
         }
         .day-body .item .value .highlight {
-            background: #fcf3d4;
-            padding: 0 6px;
-            border-radius: 4px;
-            font-weight: 500;
+            background:#fcf3d4;
+            padding:0 6px;
+            border-radius:4px;
+            font-weight:500;
         }
-        .day-body .full-width { grid-column: 1 / -1; }
+        .day-body .full-width { grid-column:1 / -1; }
 
         .day-body .cost-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px 24px;
-            padding-left: 26px;
+            display:flex;
+            flex-wrap:wrap;
+            gap:12px 24px;
+            padding-left:26px;
         }
         .day-body .cost-grid span {
-            background: #f2f8f2;
-            padding: 4px 14px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            border: 1px solid #d4e2d4;
+            background:#f2f8f2;
+            padding:4px 14px;
+            border-radius:30px;
+            font-size:0.9rem;
+            border:1px solid #d4e2d4;
         }
-        .day-body .cost-grid i { color: #c41a1a; margin-right: 4px; }
+        .day-body .cost-grid i { color:#c41a1a; margin-right:4px; }
 
         .must-see {
-            background: #fcf3d4;
-            border-left: 4px solid #f5c518;
-            padding: 2px 10px;
-            border-radius: 4px;
+            background:#fcf3d4;
+            border-left:4px solid #f5c518;
+            padding:2px 10px;
+            border-radius:4px;
         }
 
-        /* 天气样式 */
         .weather-box {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
             flex-wrap: wrap;
             background: #f0f7f0;
             border-radius: 30px;
-            padding: 4px 18px 4px 12px;
+            padding: 4px 16px 4px 10px;
             border: 1px solid #c0d4c0;
+            min-height: 44px;
         }
-        .weather-box img {
-            width: 36px;
-            height: 36px;
-            display: block;
-        }
-        .weather-box .temp {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #1e3a2e;
-        }
-        .weather-box .desc {
-            font-size: 0.9rem;
-            color: #4a5f4a;
-        }
-        .weather-loading {
-            color: #6a7f6a;
-            font-size: 0.85rem;
-        }
+        .weather-box img { width:36px; height:36px; display:block; }
+        .weather-box .temp { font-size:1.2rem; font-weight:600; color:#1e3a2e; }
+        .weather-box .desc { font-size:0.9rem; color:#4a5f4a; }
+        .weather-loading { color:#6a7f6a; font-size:0.85rem; }
+        .weather-fallback { color:#8a6a3a; font-size:0.85rem; }
 
         .footer {
             margin-top: 40px;
@@ -293,43 +224,42 @@
             border-radius: 0 0 20px 20px;
             padding-bottom: 20px;
         }
-        .footer i { color: #c41a1a; }
+        .footer i { color:#c41a1a; }
 
-        @media (max-width: 768px) {
-            .day-body { grid-template-columns: 1fr; }
-            .day-header { flex-direction: column; align-items: flex-start; gap: 8px; }
-            .header h1 { font-size: 2rem; }
-            .summary { grid-template-columns: repeat(3, 1fr); }
+        @media (max-width:768px) {
+            .day-body { grid-template-columns:1fr; }
+            .day-header { flex-direction:column; align-items:flex-start; gap:8px; }
+            .header h1 { font-size:2rem; }
+            .summary { grid-template-columns:repeat(3,1fr); }
         }
-        @media (max-width: 480px) {
-            .header .meta { flex-direction: column; align-items: center; gap: 6px; }
-            .summary { grid-template-columns: repeat(2, 1fr); }
-            .day-body { padding: 14px 16px; }
+        @media (max-width:480px) {
+            .header .meta { flex-direction:column; align-items:center; gap:6px; }
+            .summary { grid-template-columns:repeat(2,1fr); }
+            .day-body { padding:14px 16px; }
         }
 
-        /* 经幡装饰 */
         .prayer-flags {
-            display: flex;
-            justify-content: center;
-            gap: 4px;
-            margin: 6px 0 0;
-            opacity: 0.6;
+            display:flex;
+            justify-content:center;
+            gap:4px;
+            margin:6px 0 0;
+            opacity:0.6;
         }
         .prayer-flags span {
-            display: inline-block;
-            width: 20px;
-            height: 32px;
-            background: #f5c518;
-            clip-path: polygon(0% 0%, 100% 0%, 80% 100%, 20% 100%);
-            animation: flap 3s ease-in-out infinite alternate;
+            display:inline-block;
+            width:20px;
+            height:32px;
+            background:#f5c518;
+            clip-path:polygon(0% 0%, 100% 0%, 80% 100%, 20% 100%);
+            animation:flap 3s ease-in-out infinite alternate;
         }
-        .prayer-flags span:nth-child(2) { background: #c41a1a; animation-delay: 0.3s; }
-        .prayer-flags span:nth-child(3) { background: #4a90d9; animation-delay: 0.6s; }
-        .prayer-flags span:nth-child(4) { background: #1e7a5e; animation-delay: 0.9s; }
-        .prayer-flags span:nth-child(5) { background: #f5c518; animation-delay: 1.2s; }
+        .prayer-flags span:nth-child(2) { background:#c41a1a; animation-delay:0.3s; }
+        .prayer-flags span:nth-child(3) { background:#4a90d9; animation-delay:0.6s; }
+        .prayer-flags span:nth-child(4) { background:#1e7a5e; animation-delay:0.9s; }
+        .prayer-flags span:nth-child(5) { background:#f5c518; animation-delay:1.2s; }
         @keyframes flap {
-            0% { transform: skewX(-3deg) scaleY(1); }
-            100% { transform: skewX(3deg) scaleY(1.05); }
+            0% { transform:skewX(-3deg) scaleY(1); }
+            100% { transform:skewX(3deg) scaleY(1.05); }
         }
     </style>
 </head>
@@ -338,44 +268,36 @@
     <!-- 头部 -->
     <div class="header">
         <h1>🏔️ 甘南 · 九寨沟</h1>
-        <div class="sub">秘境自驾 · 7日沉浸之旅</div>
-        <div class="prayer-flags">
-            <span></span><span></span><span></span><span></span><span></span>
-        </div>
+        <div class="sub">秘境自驾 · 8日沉浸之旅</div>
+        <div class="prayer-flags"><span></span><span></span><span></span><span></span><span></span></div>
         <div class="meta">
-            <span><i class="fas fa-calendar-alt"></i> 7月12日-18日 · 7天6晚</span>
+            <span><i class="fas fa-calendar-alt"></i> 7月12日-19日 · 8天7晚</span>
             <span><i class="fas fa-car"></i> 成都租车 · 兰州还车</span>
-            <span><i class="fas fa-route"></i> 约1300 km</span>
+            <span><i class="fas fa-route"></i> 约1500 km</span>
             <span><i class="fas fa-users"></i> 与父母同行</span>
         </div>
     </div>
 
     <!-- 路线总览 -->
     <div class="route-overview">
-        <span class="node start"><i class="fas fa-home"></i> 临汾/北京</span>
-        <span class="arrow">→</span>
-        <span class="node"><i class="fas fa-city"></i> 成都</span>
-        <span class="arrow">→</span>
-        <span class="node"><i class="fas fa-museum"></i> 三星堆</span>
-        <span class="arrow">→</span>
-        <span class="node"><i class="fas fa-water"></i> 九寨沟</span>
-        <span class="arrow">→</span>
-        <span class="node"><i class="fas fa-mountain"></i> 扎尕那</span>
-        <span class="arrow">→</span>
-        <span class="node"><i class="fas fa-temple"></i> 夏河</span>
-        <span class="arrow">→</span>
-        <span class="node"><i class="fas fa-city"></i> 兰州</span>
-        <span class="arrow">→</span>
+        <span class="node start"><i class="fas fa-home"></i> 临汾/北京</span><span class="arrow">→</span>
+        <span class="node"><i class="fas fa-city"></i> 成都</span><span class="arrow">→</span>
+        <span class="node"><i class="fas fa-museum"></i> 三星堆</span><span class="arrow">→</span>
+        <span class="node"><i class="fas fa-water"></i> 九寨沟</span><span class="arrow">→</span>
+        <span class="node"><i class="fas fa-mountain"></i> 唐克</span><span class="arrow">→</span>
+        <span class="node"><i class="fas fa-mountain"></i> 扎尕那</span><span class="arrow">→</span>
+        <span class="node"><i class="fas fa-temple"></i> 夏河</span><span class="arrow">→</span>
+        <span class="node"><i class="fas fa-city"></i> 兰州</span><span class="arrow">→</span>
         <span class="node end"><i class="fas fa-undo-alt"></i> 临汾/北京</span>
     </div>
 
     <!-- 总览卡片 -->
     <div class="summary">
-        <div class="summary-card"><i class="fas fa-map-pin"></i><div class="num">7</div><div class="label">游玩日</div></div>
-        <div class="summary-card"><i class="fas fa-mountain"></i><div class="num">8+</div><div class="label">核心景点</div></div>
+        <div class="summary-card"><i class="fas fa-map-pin"></i><div class="num">8</div><div class="label">游玩日</div></div>
+        <div class="summary-card"><i class="fas fa-mountain"></i><div class="num">10+</div><div class="label">核心景点</div></div>
         <div class="summary-card"><i class="fas fa-clock"></i><div class="num">~4h</div><div class="label">日均车程</div></div>
-        <div class="summary-card"><i class="fas fa-ticket-alt"></i><div class="num">~¥450</div><div class="label">门票/人</div></div>
-        <div class="summary-card"><i class="fas fa-bed"></i><div class="num">6</div><div class="label">住宿晚数</div></div>
+        <div class="summary-card"><i class="fas fa-ticket-alt"></i><div class="num">~¥480</div><div class="label">门票/人</div></div>
+        <div class="summary-card"><i class="fas fa-bed"></i><div class="num">7</div><div class="label">住宿晚数</div></div>
     </div>
 
     <!-- 行程时间线 -->
@@ -441,33 +363,55 @@
             </div>
         </div>
 
-        <!-- Day 4: 7月15日 周三 -->
+        <!-- Day 4: 7月15日 周三 九寨沟 → 唐克 -->
         <div class="day-card">
             <div class="day-header">
                 <span class="day-badge">Day 4</span>
                 <span class="date">7月15日 · 周三</span>
-                <div class="route"><i class="fas fa-arrow-right"></i> 九寨沟 → 扎尕那 <span class="arrow">⟶</span> <i class="fas fa-mountain"></i> 扎尕那</div>
+                <div class="route"><i class="fas fa-arrow-right"></i> 九寨沟 → 唐克 <span class="arrow">⟶</span> <i class="fas fa-water"></i> 九曲黄河第一湾</div>
             </div>
             <div class="day-body">
-                <div class="item"><span class="label"><i class="fas fa-car"></i> 交通</span><div class="value">自驾 · 248国道</div></div>
-                <div class="item"><span class="label"><i class="fas fa-clock"></i> 车程</span><div class="value">约300km · 6~7小时</div></div>
-                <div class="item full-width"><span class="label"><i class="fas fa-road"></i> 路况</span><div class="value">途经若尔盖草原，路况良好，注意沿途风景。</div></div>
+                <div class="item"><span class="label"><i class="fas fa-car"></i> 交通</span><div class="value">自驾 · 九若路</div></div>
+                <div class="item"><span class="label"><i class="fas fa-clock"></i> 车程</span><div class="value">约270km · 5~6小时</div></div>
+                <div class="item full-width"><span class="label"><i class="fas fa-road"></i> 路况</span><div class="value"><span class="highlight">九若路</span>，盘山公路，海拔渐升至3000米以上，谨慎驾驶。</div></div>
                 <div class="item full-width"><span class="label"><i class="fas fa-umbrella-beach"></i> 游玩攻略</span><div class="value">
-                    • 上午出发，沿若尔盖草原一路向南，可停留拍照。<br>
-                    • 下午抵达 <span class="highlight">扎尕那</span>，入住 <strong>扎尕那业日村民宿</strong>（观景位置佳）。<br>
-                    • 傍晚在村子里散步，欣赏石城日落。
+                    • 上午出发，沿途欣赏若尔盖草原风光。<br>
+                    • 下午抵达唐克，入住 <strong>伽曲咖民宿</strong>。<br>
+                    • 傍晚前往 <span class="highlight">九曲黄河第一湾</span> 观日落（门票+扶梯 ¥105/人）。
                 </div></div>
-                <div class="item"><span class="label"><i class="fas fa-hotel"></i> 住宿</span><div class="value">扎尕那业日村（民宿）</div></div>
-                <div class="item"><span class="label"><i class="fas fa-cloud-sun"></i> 天气</span><div class="value"><div id="weather-zhagana" class="weather-box weather-loading"><i class="fas fa-spinner fa-pulse"></i> 加载中…</div></div></div>
-                <div class="item full-width"><span class="label"><i class="fas fa-coins"></i> 费用估算</span><div class="value"><span class="cost-grid"><span><i class="fas fa-gas-pump"></i> 油费+租车 ¥200</span><span><i class="fas fa-road"></i> 路费 ¥30</span><span><i class="fas fa-ticket-alt"></i> 门票 ¥240（3人）</span></span></div></div>
+                <div class="item"><span class="label"><i class="fas fa-hotel"></i> 住宿</span><div class="value">伽曲咖民宿（唐克）</div></div>
+                <div class="item"><span class="label"><i class="fas fa-cloud-sun"></i> 天气</span><div class="value"><div id="weather-tangke" class="weather-box weather-loading"><i class="fas fa-spinner fa-pulse"></i> 加载中…</div></div></div>
+                <div class="item full-width"><span class="label"><i class="fas fa-coins"></i> 费用估算</span><div class="value"><span class="cost-grid"><span><i class="fas fa-gas-pump"></i> 油费+租车 ¥200</span><span><i class="fas fa-road"></i> 路费 ¥0</span><span><i class="fas fa-ticket-alt"></i> 门票 ¥315（3人）</span></span></div></div>
             </div>
         </div>
 
-        <!-- Day 5: 7月16日 周四 -->
+        <!-- Day 5: 7月16日 周四 唐克 → 扎尕那 -->
         <div class="day-card">
             <div class="day-header">
                 <span class="day-badge">Day 5</span>
                 <span class="date">7月16日 · 周四</span>
+                <div class="route"><i class="fas fa-arrow-right"></i> 唐克 → 扎尕那 <span class="arrow">⟶</span> <i class="fas fa-mountain"></i> 扎尕那</div>
+            </div>
+            <div class="day-body">
+                <div class="item"><span class="label"><i class="fas fa-car"></i> 交通</span><div class="value">自驾 · 248国道</div></div>
+                <div class="item"><span class="label"><i class="fas fa-clock"></i> 车程</span><div class="value">约200km · 3~4小时</div></div>
+                <div class="item full-width"><span class="label"><i class="fas fa-road"></i> 路况</span><div class="value">248国道，路况良好，穿行若尔盖草原。</div></div>
+                <div class="item full-width"><span class="label"><i class="fas fa-umbrella-beach"></i> 游玩攻略</span><div class="value">
+                    • 上午可睡懒觉，或在唐克周边逛逛。<br>
+                    • 中午出发前往扎尕那，下午抵达，入住 <strong>扎尕那业日村民宿</strong>。<br>
+                    • 傍晚在村子散步，欣赏石城日落。
+                </div></div>
+                <div class="item"><span class="label"><i class="fas fa-hotel"></i> 住宿</span><div class="value">扎尕那业日村（民宿）</div></div>
+                <div class="item"><span class="label"><i class="fas fa-cloud-sun"></i> 天气</span><div class="value"><div id="weather-zhagana" class="weather-box weather-loading"><i class="fas fa-spinner fa-pulse"></i> 加载中…</div></div></div>
+                <div class="item full-width"><span class="label"><i class="fas fa-coins"></i> 费用估算</span><div class="value"><span class="cost-grid"><span><i class="fas fa-gas-pump"></i> 油费+租车 ¥150</span><span><i class="fas fa-road"></i> 路费 ¥30</span><span><i class="fas fa-ticket-alt"></i> 门票 ¥240（3人）</span></span></div></div>
+            </div>
+        </div>
+
+        <!-- Day 6: 7月17日 周五 扎尕那全天 -->
+        <div class="day-card">
+            <div class="day-header">
+                <span class="day-badge">Day 6</span>
+                <span class="date">7月17日 · 周五</span>
                 <div class="route"><i class="fas fa-mountain"></i> 扎尕那全天深度游</div>
             </div>
             <div class="day-body">
@@ -485,11 +429,11 @@
             </div>
         </div>
 
-        <!-- Day 6: 7月17日 周五 -->
+        <!-- Day 7: 7月18日 周六 扎尕那 → 夏河 -->
         <div class="day-card">
             <div class="day-header">
-                <span class="day-badge">Day 6</span>
-                <span class="date">7月17日 · 周五</span>
+                <span class="day-badge">Day 7</span>
+                <span class="date">7月18日 · 周六</span>
                 <div class="route"><i class="fas fa-arrow-right"></i> 扎尕那 → 夏河 <span class="arrow">⟶</span> <i class="fas fa-temple"></i> 夏河</div>
             </div>
             <div class="day-body">
@@ -507,11 +451,11 @@
             </div>
         </div>
 
-        <!-- Day 7: 7月18日 周六 -->
+        <!-- Day 8: 7月19日 周日 夏河 → 兰州 → 返程 -->
         <div class="day-card">
             <div class="day-header">
-                <span class="day-badge">Day 7</span>
-                <span class="date">7月18日 · 周六</span>
+                <span class="day-badge">Day 8</span>
+                <span class="date">7月19日 · 周日</span>
                 <div class="route"><i class="fas fa-arrow-right"></i> 夏河 → 兰州 <span class="arrow">⟶</span> <i class="fas fa-train"></i> 高铁返程</div>
             </div>
             <div class="day-body">
@@ -534,32 +478,34 @@
     <!-- 底栏 -->
     <div class="footer">
         <i class="fas fa-heart" style="color:#c41a1a;"></i> 祝旅途愉快 · 与父母共享美好时光 <i class="fas fa-heart" style="color:#c41a1a;"></i><br>
-        <span style="font-size:0.8rem; opacity:0.7;">行程基于2026年7月旺季信息，费用为估算，实时天气由OpenWeatherMap提供</span>
+        <span style="font-size:0.8rem; opacity:0.7;">行程基于2026年7月旺季信息，费用为估算；实时天气由OpenWeatherMap提供，若加载失败则显示历史平均参考值</span>
     </div>
 </div>
 
-<!-- JavaScript 获取天气 -->
 <script>
     (function() {
         const API_KEY = '2d5d4658506c926db2b24f92415ba64';
-        // 城市映射：显示名称、API查询城市、DOM元素ID
+
+        // 城市配置：DOM元素ID，城市名（用于API查询），显示名称，历史平均气温（备选）
         const cities = [
-            { id: 'weather-guanghan', name: 'Guanghan', label: '广汉' },
-            { id: 'weather-jiuzhaigou', name: 'Jiuzhaigou', label: '九寨沟' },
-            { id: 'weather-jiuzhaigou2', name: 'Jiuzhaigou', label: '九寨沟' },
-            { id: 'weather-zhagana', name: 'Zhagana', label: '扎尕那' },
-            { id: 'weather-zhagana2', name: 'Zhagana', label: '扎尕那' },
-            { id: 'weather-xiahe', name: 'Xiahe', label: '夏河' },
-            { id: 'weather-lanzhou', name: 'Lanzhou', label: '兰州' }
+            { id: 'weather-guanghan', name: 'Guanghan', label: '广汉', avgTemp: 29 },
+            { id: 'weather-jiuzhaigou', name: 'Jiuzhaigou', label: '九寨沟', avgTemp: 24 },
+            { id: 'weather-jiuzhaigou2', name: 'Jiuzhaigou', label: '九寨沟', avgTemp: 24 },
+            { id: 'weather-tangke', name: 'Tangke', label: '唐克', avgTemp: 20 },
+            { id: 'weather-zhagana', name: 'Zhagana', label: '扎尕那', avgTemp: 20 },
+            { id: 'weather-zhagana2', name: 'Zhagana', label: '扎尕那', avgTemp: 20 },
+            { id: 'weather-xiahe', name: 'Xiahe', label: '夏河', avgTemp: 18 },
+            { id: 'weather-lanzhou', name: 'Lanzhou', label: '兰州', avgTemp: 26 }
         ];
 
         // 获取天气并更新DOM
-        function fetchWeather(cityId, cityName, label) {
+        function fetchWeather(cityId, cityName, label, avgTemp) {
             const el = document.getElementById(cityId);
             if (!el) return;
+
             const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName},CN&appid=${API_KEY}&units=metric&lang=zh_cn`;
 
-            fetch(url)
+            fetch(url, { timeout: 8000 })
                 .then(response => {
                     if (!response.ok) throw new Error(`HTTP ${response.status}`);
                     return response.json();
@@ -578,14 +524,17 @@
                     el.classList.remove('weather-loading');
                 })
                 .catch(error => {
-                    console.error(`获取${label}天气失败:`, error);
-                    el.innerHTML = `<span style="color:#a61c1c;">⚠️ 天气加载失败</span>`;
+                    console.warn(`获取${label}天气失败:`, error);
+                    // 显示备选历史平均温度
+                    el.innerHTML = `
+                        <span class="weather-fallback"><i class="fas fa-cloud-sun"></i> 参考7月均温 ${avgTemp}°C</span>
+                    `;
                     el.classList.remove('weather-loading');
                 });
         }
 
         // 逐一请求
-        cities.forEach(c => fetchWeather(c.id, c.name, c.label));
+        cities.forEach(c => fetchWeather(c.id, c.name, c.label, c.avgTemp));
     })();
 </script>
 </body>
