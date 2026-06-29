@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>甘南·九寨沟 自驾之旅 · 8日行程</title>
+    <title>甘南·九寨沟 自驾之旅 · 9日路书</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * { margin:0; padding:0; box-sizing:border-box; }
@@ -53,12 +53,42 @@
         .header .meta span { display:inline-flex; align-items:center; gap:6px; }
         .header .meta i { color:#f5c518; }
 
+        /* 精简行李提示（顶部保留简要版） */
+        .luggage-tip {
+            background: #fcf8e8;
+            border-left: 6px solid #c41a1a;
+            border-radius: 16px;
+            padding: 12px 20px;
+            margin: 16px 0 18px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px 16px;
+        }
+        .luggage-tip .icon { font-size:1.8rem; color:#c41a1a; }
+        .luggage-tip .text { flex:1; font-size:0.92rem; line-height:1.6; }
+        .luggage-tip .text strong { color:#a61c1c; }
+        .luggage-tip .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .luggage-tip .tags span {
+            background: #fff;
+            border:1px solid #d4e2d4;
+            border-radius:30px;
+            padding:2px 12px;
+            font-size:0.75rem;
+            font-weight:500;
+        }
+
         .route-overview {
             background: rgba(255,255,255,0.85);
             backdrop-filter: blur(6px);
             border-radius: 16px;
-            padding: 14px 20px;
-            margin: 16px 0 18px;
+            padding: 12px 16px;
+            margin: 12px 0 18px;
             box-shadow: 0 4px 14px rgba(0,20,10,0.06);
             border: 1px solid #d4e2d4;
             display: flex;
@@ -66,7 +96,7 @@
             align-items: center;
             justify-content: center;
             gap: 4px 2px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 500;
             color: #1e3a2e;
         }
@@ -75,26 +105,20 @@
             align-items: center;
             gap: 4px;
             background: #f4faf4;
-            padding: 4px 12px;
+            padding: 3px 10px;
             border-radius: 30px;
             border: 1px solid #c0d4c0;
             white-space: nowrap;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
-        .route-overview .node i { color:#c41a1a; font-size:0.8rem; }
+        .route-overview .node i { color:#c41a1a; font-size:0.7rem; }
         .route-overview .node.start i { color:#2d7a2d; }
         .route-overview .node.end i { color:#b8860b; }
-        .route-overview .arrow { color:#b8860b; font-size:1rem; font-weight:300; padding:0 2px; }
-        @media (max-width:768px) {
-            .route-overview { font-size:0.75rem; padding:10px 12px; }
-            .route-overview .node { padding:3px 8px; font-size:0.75rem; }
-            .route-overview .arrow { font-size:0.8rem; }
-            .route-overview .node i { display:none; }
-        }
+        .route-overview .arrow { color:#b8860b; font-size:0.9rem; padding:0 2px; }
 
         .summary {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
             gap: 10px;
             margin: -8px 0 24px;
             padding: 0 10px;
@@ -172,22 +196,14 @@
             border-radius:4px;
             font-weight:500;
         }
+        .day-body .item .value .tip-box {
+            background:#f0f7f0;
+            border-left:4px solid #c41a1a;
+            padding:8px 12px;
+            border-radius:8px;
+            margin-top:4px;
+        }
         .day-body .full-width { grid-column:1 / -1; }
-
-        .day-body .cost-grid {
-            display:flex;
-            flex-wrap:wrap;
-            gap:12px 24px;
-            padding-left:26px;
-        }
-        .day-body .cost-grid span {
-            background:#f2f8f2;
-            padding:4px 14px;
-            border-radius:30px;
-            font-size:0.9rem;
-            border:1px solid #d4e2d4;
-        }
-        .day-body .cost-grid i { color:#c41a1a; margin-right:4px; }
 
         .must-see {
             background:#fcf3d4;
@@ -213,15 +229,92 @@
         .weather-loading { color:#6a7f6a; font-size:0.85rem; }
         .weather-fallback { color:#8a6a3a; font-size:0.85rem; }
 
+        /* ========== 行李详细卡片（单独放在最后） ========== */
+        .luggage-detailed {
+            background: #fcf8ed;
+            border-radius: 20px;
+            padding: 24px 28px;
+            margin: 20px 0 30px;
+            border: 2px solid #dce8dc;
+            box-shadow: 0 8px 24px rgba(0,20,10,0.06);
+        }
+        .luggage-detailed h2 {
+            font-size: 1.6rem;
+            color: #a61c1c;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-bottom: 2px dashed #d4e2d4;
+            padding-bottom: 12px;
+        }
+        .luggage-detailed h2 i { color:#c41a1a; }
+        .luggage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px 30px;
+        }
+        .luggage-category {
+            background: #fff;
+            border-radius: 14px;
+            padding: 16px 18px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            border: 1px solid #e8f0e8;
+        }
+        .luggage-category h3 {
+            font-size: 1rem;
+            color: #1e3a2e;
+            border-bottom: 2px solid #f0f7f0;
+            padding-bottom: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .luggage-category h3 i { color:#c41a1a; width:20px; }
+        .luggage-category ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .luggage-category ul li {
+            padding: 4px 0 4px 22px;
+            position: relative;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            border-bottom: 1px solid #f6fbf6;
+        }
+        .luggage-category ul li:last-child { border-bottom: none; }
+        .luggage-category ul li::before {
+            content: "•";
+            color: #c41a1a;
+            font-weight: 700;
+            position: absolute;
+            left: 4px;
+        }
+        .luggage-category ul li .note {
+            color: #6a7f6a;
+            font-size: 0.8rem;
+            display: block;
+            padding-left: 4px;
+        }
+        .luggage-summary-box {
+            margin-top:16px;
+            padding:12px 16px;
+            background:#f2f8f2;
+            border-radius:12px;
+            font-size:0.92rem;
+            color:#2d5a2d;
+            border-left:4px solid #c41a1a;
+        }
+
         .footer {
-            margin-top: 40px;
+            margin-top: 20px;
             text-align: center;
             font-size: 0.9rem;
             color: #4a5f4a;
             border-top: 2px dashed #c0d4c0;
-            padding-top: 30px;
-            background: #f4faf4;
-            border-radius: 0 0 20px 20px;
+            padding-top: 25px;
             padding-bottom: 20px;
         }
         .footer i { color:#c41a1a; }
@@ -231,11 +324,15 @@
             .day-header { flex-direction:column; align-items:flex-start; gap:8px; }
             .header h1 { font-size:2rem; }
             .summary { grid-template-columns:repeat(3,1fr); }
+            .luggage-grid { grid-template-columns:1fr 1fr; }
         }
         @media (max-width:480px) {
             .header .meta { flex-direction:column; align-items:center; gap:6px; }
             .summary { grid-template-columns:repeat(2,1fr); }
             .day-body { padding:14px 16px; }
+            .luggage-tip { flex-direction:column; align-items:flex-start; }
+            .luggage-detailed { padding:16px; }
+            .luggage-grid { grid-template-columns:1fr; }
         }
 
         .prayer-flags {
@@ -268,13 +365,27 @@
     <!-- 头部 -->
     <div class="header">
         <h1>🏔️ 甘南 · 九寨沟</h1>
-        <div class="sub">秘境自驾 · 8日沉浸之旅</div>
+        <div class="sub">9日自驾路书 · 2026年7月</div>
         <div class="prayer-flags"><span></span><span></span><span></span><span></span><span></span></div>
         <div class="meta">
-            <span><i class="fas fa-calendar-alt"></i> 7月12日-19日 · 8天7晚</span>
+            <span><i class="fas fa-calendar-alt"></i> 7月11日-19日 · 9天8晚</span>
             <span><i class="fas fa-car"></i> 成都租车 · 兰州还车</span>
-            <span><i class="fas fa-route"></i> 约1500 km</span>
-            <span><i class="fas fa-users"></i> 与父母同行</span>
+            <span><i class="fas fa-route"></i> 约1700 km</span>
+            <span><i class="fas fa-users"></i> 家庭出游</span>
+        </div>
+    </div>
+
+    <!-- 精简行李提示 -->
+    <div class="luggage-tip">
+        <div class="icon">🧳</div>
+        <div class="text">
+            <strong>行李要点</strong> · 保暖外套（5-10℃）· 防晒（帽+墨镜+SPF50）· 药品（红景天、氧气瓶、布洛芬、晕车药）· 证件（身份证、驾驶证）· 保温杯 · 离线地图
+        </div>
+        <div class="tags">
+            <span>🧥 保暖</span>
+            <span>☀️ 防晒</span>
+            <span>💊 高反</span>
+            <span>📱 离线</span>
         </div>
     </div>
 
@@ -285,6 +396,7 @@
         <span class="node"><i class="fas fa-museum"></i> 三星堆</span><span class="arrow">→</span>
         <span class="node"><i class="fas fa-water"></i> 九寨沟</span><span class="arrow">→</span>
         <span class="node"><i class="fas fa-mountain"></i> 唐克</span><span class="arrow">→</span>
+        <span class="node"><i class="fas fa-mountain"></i> 莲宝叶则</span><span class="arrow">→</span>
         <span class="node"><i class="fas fa-mountain"></i> 扎尕那</span><span class="arrow">→</span>
         <span class="node"><i class="fas fa-temple"></i> 夏河</span><span class="arrow">→</span>
         <span class="node"><i class="fas fa-city"></i> 兰州</span><span class="arrow">→</span>
@@ -293,249 +405,404 @@
 
     <!-- 总览卡片 -->
     <div class="summary">
-        <div class="summary-card"><i class="fas fa-map-pin"></i><div class="num">8</div><div class="label">游玩日</div></div>
-        <div class="summary-card"><i class="fas fa-mountain"></i><div class="num">10+</div><div class="label">核心景点</div></div>
-        <div class="summary-card"><i class="fas fa-clock"></i><div class="num">~4h</div><div class="label">日均车程</div></div>
-        <div class="summary-card"><i class="fas fa-ticket-alt"></i><div class="num">~¥480</div><div class="label">门票/人</div></div>
-        <div class="summary-card"><i class="fas fa-bed"></i><div class="num">7</div><div class="label">住宿晚数</div></div>
+        <div class="summary-card"><i class="fas fa-map-pin"></i><div class="num">9</div><div class="label">游玩日</div></div>
+        <div class="summary-card"><i class="fas fa-mountain"></i><div class="num">6+</div><div class="label">核心景点</div></div>
+        <div class="summary-card"><i class="fas fa-clock"></i><div class="num">~4.5h</div><div class="label">日均车程</div></div>
+        <div class="summary-card"><i class="fas fa-bed"></i><div class="num">8</div><div class="label">住宿晚数</div></div>
     </div>
 
-    <!-- 行程时间线 -->
-    <div class="timeline">
+    <!-- ========== 行程卡片 ========== -->
+    <div class="timeline" id="timeline"></div>
 
-        <!-- Day 1: 7月12日 周日 -->
-        <div class="day-card">
-            <div class="day-header">
-                <span class="day-badge">Day 1</span>
-                <span class="date">7月12日 · 周日</span>
-                <div class="route"><i class="fas fa-train"></i> 临汾 → 成都 <span class="arrow">⟶</span> <i class="fas fa-museum"></i> 三星堆</div>
+    <!-- ========== 行李详细卡片（单独放在最后） ========== -->
+    <div class="luggage-detailed">
+        <h2><i class="fas fa-suitcase-rolling"></i> 🧳 行李准备详细清单</h2>
+        <div class="luggage-grid">
+            <!-- 衣物类 -->
+            <div class="luggage-category">
+                <h3><i class="fas fa-tshirt"></i> 衣物类</h3>
+                <ul>
+                    <li><strong>冲锋衣 / 薄羽绒服</strong> — 每人1件，早晚只有5-10℃，垭口风大，必备！</li>
+                    <li><strong>长袖T恤 / 速干衣</strong> — 每人3-4件，白天防晒透气</li>
+                    <li><strong>薄外套 / 防晒衣</strong> — 每人1件，车内或阴天穿</li>
+                    <li><strong>长裤（运动裤 / 牛仔裤）</strong> — 每人2条，草原蚊虫多且晒，不建议短裤</li>
+                    <li><strong>保暖裤 / 秋裤</strong> — 每人1条，阿坝、莲宝叶则早晚用得上</li>
+                    <li><strong>舒适徒步鞋</strong> — 每人1双，九寨沟+扎尕那日均1.5万步，鞋底要软</li>
+                    <li><strong>内衣裤 + 袜子</strong> — 每人5-6套，高原干燥不易干</li>
+                    <li><strong>遮阳帽 + 墨镜</strong> — 每人1副，高原紫外线极强，不戴会晒伤</li>
+                    <li><strong>围巾 / 薄披肩</strong> — 每人1条，防风+拍照道具+车内盖腿</li>
+                    <li><strong>拖鞋</strong> — 每人1双，民宿/酒店用</li>
+                </ul>
             </div>
-            <div class="day-body">
-                <div class="item"><span class="label"><i class="fas fa-train"></i> 交通</span><div class="value">G3139 临汾西→成都东（约6小时）</div></div>
-                <div class="item"><span class="label"><i class="fas fa-car"></i> 租车</span><div class="value">成都东站取SUV（建议高底盘）</div></div>
-                <div class="item full-width"><span class="label"><i class="fas fa-umbrella-beach"></i> 游玩攻略</span><div class="value">
-                    • 下午抵达成都，取车后游览 <span class="highlight">宽窄巷子</span> 或 <span class="highlight">锦里</span>，品尝火锅。<br>
-                    • 傍晚自驾前往广汉（约1-1.5小时），入住 <strong>德阳广汉枫渡酒店</strong>。
-                </div></div>
-                <div class="item"><span class="label"><i class="fas fa-hotel"></i> 住宿</span><div class="value">德阳广汉枫渡酒店</div></div>
-                <div class="item"><span class="label"><i class="fas fa-cloud-sun"></i> 天气</span><div class="value"><div id="weather-guanghan" class="weather-box weather-loading"><i class="fas fa-spinner fa-pulse"></i> 加载中…</div></div></div>
-                <div class="item full-width"><span class="label"><i class="fas fa-coins"></i> 费用估算</span><div class="value"><span class="cost-grid"><span><i class="fas fa-gas-pump"></i> 油费+租车 ¥1,500</span><span><i class="fas fa-road"></i> 路费 ¥2,000</span><span><i class="fas fa-ticket-alt"></i> 门票 —</span></span></div></div>
+
+            <!-- 药品类 -->
+            <div class="luggage-category">
+                <h3><i class="fas fa-pills"></i> 药品类</h3>
+                <ul>
+                    <li><strong>红景天</strong> — 提前7天开始服用，全家一起</li>
+                    <li><strong>便携氧气瓶</strong> — 每人2-3瓶，成都/九寨沟购买，莲宝叶则+洛克之路用</li>
+                    <li><strong>布洛芬 / 对乙酰氨基酚</strong> — 高反头痛最有效</li>
+                    <li><strong>葡萄糖口服液</strong> — 快速补充能量+缓解高反</li>
+                    <li><strong>晕车药（茶苯海明）</strong> — 盘山路多，容易晕车</li>
+                    <li><strong>肠胃药（蒙脱石散 / 黄连素）</strong> — 水土不服</li>
+                    <li><strong>感冒药 + 退烧药</strong> — 高原感冒恢复慢</li>
+                    <li><strong>日常慢病药</strong> — 比行程多带3天量，分两处放</li>
+                    <li><strong>创可贴 + 碘伏棉签</strong> — 小伤口处理</li>
+                    <li><strong>体温计</strong> — 电子版，随时监测</li>
+                </ul>
+            </div>
+
+            <!-- 证件与支付 -->
+            <div class="luggage-category">
+                <h3><i class="fas fa-id-card"></i> 证件与支付</h3>
+                <ul>
+                    <li><strong>身份证</strong> — 每人随身携带，住宿+景区实名</li>
+                    <li><strong>驾驶证 + 行驶证</strong> — 司机携带，电子驾照备一份</li>
+                    <li><strong>银行卡 + 现金</strong> — 500-1000元，沿途部分加油站/牧区只收现金</li>
+                    <li><strong>手机 + 充电宝</strong> — 每人，高原耗电快，2万毫安充电宝必备</li>
+                    <li><strong>紧急联系人卡片</strong> — 写上基础病史和过敏药物</li>
+                    <li><strong>门票预约截图</strong> — 九寨沟+三星堆预约码提前截图保存</li>
+                </ul>
+            </div>
+
+            <!-- 洗护与防晒 -->
+            <div class="luggage-category">
+                <h3><i class="fas fa-spa"></i> 洗护与防晒</h3>
+                <ul>
+                    <li><strong>防晒霜（SPF50+ PA+++）</strong> — 每人，高原必涂，每2小时补一次</li>
+                    <li><strong>润唇膏（带防晒）</strong> — 每人，嘴唇极易干裂</li>
+                    <li><strong>保湿乳液 / 面霜</strong> — 每人，高原极度干燥</li>
+                    <li><strong>洗发水 + 沐浴露（旅行装）</strong> — 部分民宿不提供</li>
+                    <li><strong>牙刷 + 牙膏 + 毛巾</strong> — 每人，民宿条件有限</li>
+                    <li><strong>湿巾 + 纸巾（大包）</strong> — 沿途厕所条件差，大量备</li>
+                    <li><strong>免洗洗手液</strong> — 车上/景区吃饭前用</li>
+                </ul>
+            </div>
+
+            <!-- 车载与路上 -->
+            <div class="luggage-category">
+                <h3><i class="fas fa-car"></i> 车载与路上</h3>
+                <ul>
+                    <li><strong>车载手机支架</strong> — 导航必备</li>
+                    <li><strong>车载充电器（多口）</strong> — 同时充多部手机</li>
+                    <li><strong>保温杯（大容量）</strong> — 每人，高原喝热水非常重要</li>
+                    <li><strong>矿泉水（1箱）</strong> — 成都购买，沿途补水</li>
+                    <li><strong>高热量零食</strong> — 巧克力/牛肉干/饼干，洛克之路无补给</li>
+                    <li><strong>水果（苹果 / 黄瓜）</strong> — 补充维生素</li>
+                    <li><strong>垃圾袋</strong> — 几个，车上垃圾不乱扔</li>
+                    <li><strong>颈枕 + 腰靠</strong> — 每人，长途车程多，腰靠对腰椎很友好</li>
+                    <li><strong>折叠雨伞 / 雨衣</strong> — 7月雨季，草原阵雨多</li>
+                    <li><strong>离线地图</strong> — 提前下载甘肃+四川离线地图</li>
+                </ul>
+            </div>
+
+            <!-- 其他实用小件 -->
+            <div class="luggage-category">
+                <h3><i class="fas fa-tools"></i> 其他实用小件</h3>
+                <ul>
+                    <li><strong>折叠小板凳 / 坐垫</strong> — 景区排队或草原休息用</li>
+                    <li><strong>便携烧水壶</strong> — 高原酒店水壶不干净，自己带</li>
+                    <li><strong>晾衣绳 + 折叠衣架</strong> — 民宿晾衣服用</li>
+                    <li><strong>指甲刀</strong> — 小物件但实用</li>
+                    <li><strong>日记本 + 笔</strong> — 记录旅行点滴</li>
+                    <li><strong>扑克牌</strong> — 晚上在酒店玩</li>
+                </ul>
             </div>
         </div>
-
-        <!-- Day 2: 7月13日 周一 -->
-        <div class="day-card">
-            <div class="day-header">
-                <span class="day-badge">Day 2</span>
-                <span class="date">7月13日 · 周一</span>
-                <div class="route"><i class="fas fa-museum"></i> 三星堆 <span class="arrow">⟶</span> <i class="fas fa-water"></i> 九寨沟</div>
-            </div>
-            <div class="day-body">
-                <div class="item"><span class="label"><i class="fas fa-car"></i> 交通</span><div class="value">自驾 · 九绵高速</div></div>
-                <div class="item"><span class="label"><i class="fas fa-clock"></i> 车程</span><div class="value">约400km · 4.5~6小时</div></div>
-                <div class="item full-width"><span class="label"><i class="fas fa-road"></i> 路况</span><div class="value"><span class="highlight">九绵高速（G8513）</span>，隧道多，限速80-100km/h。</div></div>
-                <div class="item full-width"><span class="label"><i class="fas fa-umbrella-beach"></i> 游玩攻略</span><div class="value">
-                    <span class="must-see">⭐ 古蜀文明</span><br>
-                    • <strong>上午</strong> 游览 <span class="highlight">三星堆博物馆</span>（门票¥72/人，需公众号预约）。<br>
-                    • <strong>下午</strong> 出发前往九寨沟，沿途服务区休息，晚上抵达沟口，入住 <strong>九寨沟丽呈华廷度假酒店</strong>。<br>
-                    • ⚠️ 务必确认次日九寨沟门票已预约。
-                </div></div>
-                <div class="item"><span class="label"><i class="fas fa-hotel"></i> 住宿</span><div class="value">九寨沟丽呈华廷度假酒店</div></div>
-                <div class="item"><span class="label"><i class="fas fa-cloud-sun"></i> 天气</span><div class="value"><div id="weather-jiuzhaigou" class="weather-box weather-loading"><i class="fas fa-spinner fa-pulse"></i> 加载中…</div></div></div>
-                <div class="item full-width"><span class="label"><i class="fas fa-coins"></i> 费用估算</span><div class="value"><span class="cost-grid"><span><i class="fas fa-gas-pump"></i> 油费+租车 ¥300</span><span><i class="fas fa-road"></i> 路费 ¥200</span><span><i class="fas fa-ticket-alt"></i> 门票 ¥216（3人）</span></span></div></div>
-            </div>
+        <div class="luggage-summary-box">
+            <strong>📌 行李分装建议：</strong> 24寸行李箱（厚衣服+备用鞋+大瓶洗护）放后备箱；随身背包（女儿）装证件、现金、充电宝、氧气瓶、防晒、湿巾；同行家人各带随身小包装身份证、手机、老花镜、日常药、保温杯。
         </div>
-
-        <!-- Day 3: 7月14日 周二 -->
-        <div class="day-card">
-            <div class="day-header">
-                <span class="day-badge">Day 3</span>
-                <span class="date">7月14日 · 周二</span>
-                <div class="route"><i class="fas fa-tree"></i> 九寨沟全天游览</div>
-            </div>
-            <div class="day-body">
-                <div class="item"><span class="label"><i class="fas fa-bus"></i> 交通</span><div class="value">景区观光车</div></div>
-                <div class="item"><span class="label"><i class="fas fa-clock"></i> 时长</span><div class="value">全天 · 约8小时</div></div>
-                <div class="item full-width"><span class="label"><i class="fas fa-umbrella-beach"></i> 游玩攻略</span><div class="value"><span class="must-see">⭐ 世界自然遗产</span><br>按“Y”字形路线：<br>• <strong>上午</strong> 则查洼沟（长海、五彩池）<br>• <strong>中午</strong> 日则沟（五花海、珍珠滩瀑布）<br>• <strong>下午</strong> 树正沟（树正群海、盆景滩）<br><span class="highlight">门票¥190 + 观光车¥90 = ¥280/人</span><br>⚠️ 提前7-14天在“阿坝旅游网”预约。</div></div>
-                <div class="item"><span class="label"><i class="fas fa-hotel"></i> 住宿</span><div class="value">九寨沟丽呈华廷度假酒店</div></div>
-                <div class="item"><span class="label"><i class="fas fa-cloud-sun"></i> 天气</span><div class="value"><div id="weather-jiuzhaigou2" class="weather-box weather-loading"><i class="fas fa-spinner fa-pulse"></i> 加载中…</div></div></div>
-                <div class="item full-width"><span class="label"><i class="fas fa-coins"></i> 费用估算</span><div class="value"><span class="cost-grid"><span><i class="fas fa-gas-pump"></i> 油费+租车 —</span><span><i class="fas fa-road"></i> 路费 —</span><span><i class="fas fa-ticket-alt"></i> 门票 ¥840（3人）</span></span></div></div>
-            </div>
-        </div>
-
-        <!-- Day 4: 7月15日 周三 九寨沟 → 唐克 -->
-        <div class="day-card">
-            <div class="day-header">
-                <span class="day-badge">Day 4</span>
-                <span class="date">7月15日 · 周三</span>
-                <div class="route"><i class="fas fa-arrow-right"></i> 九寨沟 → 唐克 <span class="arrow">⟶</span> <i class="fas fa-water"></i> 九曲黄河第一湾</div>
-            </div>
-            <div class="day-body">
-                <div class="item"><span class="label"><i class="fas fa-car"></i> 交通</span><div class="value">自驾 · 九若路</div></div>
-                <div class="item"><span class="label"><i class="fas fa-clock"></i> 车程</span><div class="value">约270km · 5~6小时</div></div>
-                <div class="item full-width"><span class="label"><i class="fas fa-road"></i> 路况</span><div class="value"><span class="highlight">九若路</span>，盘山公路，海拔渐升至3000米以上，谨慎驾驶。</div></div>
-                <div class="item full-width"><span class="label"><i class="fas fa-umbrella-beach"></i> 游玩攻略</span><div class="value">
-                    • 上午出发，沿途欣赏若尔盖草原风光。<br>
-                    • 下午抵达唐克，入住 <strong>伽曲咖民宿</strong>。<br>
-                    • 傍晚前往 <span class="highlight">九曲黄河第一湾</span> 观日落（门票+扶梯 ¥105/人）。
-                </div></div>
-                <div class="item"><span class="label"><i class="fas fa-hotel"></i> 住宿</span><div class="value">伽曲咖民宿（唐克）</div></div>
-                <div class="item"><span class="label"><i class="fas fa-cloud-sun"></i> 天气</span><div class="value"><div id="weather-tangke" class="weather-box weather-loading"><i class="fas fa-spinner fa-pulse"></i> 加载中…</div></div></div>
-                <div class="item full-width"><span class="label"><i class="fas fa-coins"></i> 费用估算</span><div class="value"><span class="cost-grid"><span><i class="fas fa-gas-pump"></i> 油费+租车 ¥200</span><span><i class="fas fa-road"></i> 路费 ¥0</span><span><i class="fas fa-ticket-alt"></i> 门票 ¥315（3人）</span></span></div></div>
-            </div>
-        </div>
-
-        <!-- Day 5: 7月16日 周四 唐克 → 扎尕那 -->
-        <div class="day-card">
-            <div class="day-header">
-                <span class="day-badge">Day 5</span>
-                <span class="date">7月16日 · 周四</span>
-                <div class="route"><i class="fas fa-arrow-right"></i> 唐克 → 扎尕那 <span class="arrow">⟶</span> <i class="fas fa-mountain"></i> 扎尕那</div>
-            </div>
-            <div class="day-body">
-                <div class="item"><span class="label"><i class="fas fa-car"></i> 交通</span><div class="value">自驾 · 248国道</div></div>
-                <div class="item"><span class="label"><i class="fas fa-clock"></i> 车程</span><div class="value">约200km · 3~4小时</div></div>
-                <div class="item full-width"><span class="label"><i class="fas fa-road"></i> 路况</span><div class="value">248国道，路况良好，穿行若尔盖草原。</div></div>
-                <div class="item full-width"><span class="label"><i class="fas fa-umbrella-beach"></i> 游玩攻略</span><div class="value">
-                    • 上午可睡懒觉，或在唐克周边逛逛。<br>
-                    • 中午出发前往扎尕那，下午抵达，入住 <strong>扎尕那业日村民宿</strong>。<br>
-                    • 傍晚在村子散步，欣赏石城日落。
-                </div></div>
-                <div class="item"><span class="label"><i class="fas fa-hotel"></i> 住宿</span><div class="value">扎尕那业日村（民宿）</div></div>
-                <div class="item"><span class="label"><i class="fas fa-cloud-sun"></i> 天气</span><div class="value"><div id="weather-zhagana" class="weather-box weather-loading"><i class="fas fa-spinner fa-pulse"></i> 加载中…</div></div></div>
-                <div class="item full-width"><span class="label"><i class="fas fa-coins"></i> 费用估算</span><div class="value"><span class="cost-grid"><span><i class="fas fa-gas-pump"></i> 油费+租车 ¥150</span><span><i class="fas fa-road"></i> 路费 ¥30</span><span><i class="fas fa-ticket-alt"></i> 门票 ¥240（3人）</span></span></div></div>
-            </div>
-        </div>
-
-        <!-- Day 6: 7月17日 周五 扎尕那全天 -->
-        <div class="day-card">
-            <div class="day-header">
-                <span class="day-badge">Day 6</span>
-                <span class="date">7月17日 · 周五</span>
-                <div class="route"><i class="fas fa-mountain"></i> 扎尕那全天深度游</div>
-            </div>
-            <div class="day-body">
-                <div class="item"><span class="label"><i class="fas fa-walking"></i> 交通</span><div class="value">景区内步行</div></div>
-                <div class="item"><span class="label"><i class="fas fa-clock"></i> 时长</span><div class="value">全天</div></div>
-                <div class="item full-width"><span class="label"><i class="fas fa-umbrella-beach"></i> 游玩攻略</span><div class="value"><span class="must-see">⭐ 人间伊甸园</span><br>
-                    • <strong>早起（约5:30）</strong> 前往 <span class="highlight">达日观景台</span> 拍晨雾日出。<br>
-                    • 上午 <span class="highlight">仙女滩</span> 轻徒步（往返2小时），俯瞰全景。<br>
-                    • 下午可游览 <span class="highlight">润吾沟</span> 或 <span class="highlight">业日村观景台</span>。<br>
-                    门票¥80/人（3天有效）。
-                </div></div>
-                <div class="item"><span class="label"><i class="fas fa-hotel"></i> 住宿</span><div class="value">扎尕那业日村（民宿）</div></div>
-                <div class="item"><span class="label"><i class="fas fa-cloud-sun"></i> 天气</span><div class="value"><div id="weather-zhagana2" class="weather-box weather-loading"><i class="fas fa-spinner fa-pulse"></i> 加载中…</div></div></div>
-                <div class="item full-width"><span class="label"><i class="fas fa-coins"></i> 费用估算</span><div class="value"><span class="cost-grid"><span><i class="fas fa-gas-pump"></i> 油费+租车 ¥50</span><span><i class="fas fa-road"></i> 路费 ¥10</span><span><i class="fas fa-ticket-alt"></i> 门票 —</span></span></div></div>
-            </div>
-        </div>
-
-        <!-- Day 7: 7月18日 周六 扎尕那 → 夏河 -->
-        <div class="day-card">
-            <div class="day-header">
-                <span class="day-badge">Day 7</span>
-                <span class="date">7月18日 · 周六</span>
-                <div class="route"><i class="fas fa-arrow-right"></i> 扎尕那 → 夏河 <span class="arrow">⟶</span> <i class="fas fa-temple"></i> 夏河</div>
-            </div>
-            <div class="day-body">
-                <div class="item"><span class="label"><i class="fas fa-car"></i> 交通</span><div class="value">自驾 · <span class="highlight">洛克之路</span></div></div>
-                <div class="item"><span class="label"><i class="fas fa-clock"></i> 车程</span><div class="value">约250km · 5~6小时</div></div>
-                <div class="item full-width"><span class="label"><i class="fas fa-road"></i> 路况</span><div class="value"><span class="must-see">⚠️ 必须高底盘SUV/硬派越野！</span><br>光盖山段非铺装砂石路，炮弹坑、碎石、临崖急弯，<strong>全程无信号</strong>。出发前加满油、下载离线地图。</div></div>
-                <div class="item full-width"><span class="label"><i class="fas fa-umbrella-beach"></i> 游玩攻略</span><div class="value">
-                    • 上午穿越洛克之路，欣赏光盖山石峰、高山草甸。<br>
-                    • 下午抵达夏河，入住 <strong>夏河雅培林卡营地民宿</strong>（桑科草原旁）。<br>
-                    • 傍晚可逛 <span class="highlight">拉卜楞寺</span> 外围转经筒长廊（免费）。
-                </div></div>
-                <div class="item"><span class="label"><i class="fas fa-hotel"></i> 住宿</span><div class="value">夏河雅培林卡营地民宿</div></div>
-                <div class="item"><span class="label"><i class="fas fa-cloud-sun"></i> 天气</span><div class="value"><div id="weather-xiahe" class="weather-box weather-loading"><i class="fas fa-spinner fa-pulse"></i> 加载中…</div></div></div>
-                <div class="item full-width"><span class="label"><i class="fas fa-coins"></i> 费用估算</span><div class="value"><span class="cost-grid"><span><i class="fas fa-gas-pump"></i> 油费+租车 ¥200</span><span><i class="fas fa-road"></i> 路费 ¥30</span><span><i class="fas fa-ticket-alt"></i> 门票 —</span></span></div></div>
-            </div>
-        </div>
-
-        <!-- Day 8: 7月19日 周日 夏河 → 兰州 → 返程 -->
-        <div class="day-card">
-            <div class="day-header">
-                <span class="day-badge">Day 8</span>
-                <span class="date">7月19日 · 周日</span>
-                <div class="route"><i class="fas fa-arrow-right"></i> 夏河 → 兰州 <span class="arrow">⟶</span> <i class="fas fa-train"></i> 高铁返程</div>
-            </div>
-            <div class="day-body">
-                <div class="item"><span class="label"><i class="fas fa-car"></i> 交通</span><div class="value">自驾 + 高铁</div></div>
-                <div class="item"><span class="label"><i class="fas fa-clock"></i> 车程</span><div class="value">夏河→兰州约230km · 3.5~4小时</div></div>
-                <div class="item full-width"><span class="label"><i class="fas fa-road"></i> 路况</span><div class="value">312国道 → 兰海高速，路况良好。</div></div>
-                <div class="item full-width"><span class="label"><i class="fas fa-umbrella-beach"></i> 游玩攻略</span><div class="value">
-                    • 上午可游览 <span class="highlight">甘加秘境</span>（¥50-80/人）或 <span class="highlight">桑科草原</span>（免费）。<br>
-                    • 中午出发返回兰州，下午还车。<br>
-                    • <strong>高铁返程</strong>：兰州西站乘 <strong>G352</strong>（兰州西→北京西）至西安北，换乘 <strong>D2562</strong> 至临汾西（或直接乘坐G352至北京西）。
-                </div></div>
-                <div class="item"><span class="label"><i class="fas fa-hotel"></i> 住宿</span><div class="value">—</div></div>
-                <div class="item"><span class="label"><i class="fas fa-cloud-sun"></i> 天气</span><div class="value"><div id="weather-lanzhou" class="weather-box weather-loading"><i class="fas fa-spinner fa-pulse"></i> 加载中…</div></div></div>
-                <div class="item full-width"><span class="label"><i class="fas fa-coins"></i> 费用估算</span><div class="value"><span class="cost-grid"><span><i class="fas fa-gas-pump"></i> 油费+租车 ¥150</span><span><i class="fas fa-road"></i> 路费 ¥2,000</span><span><i class="fas fa-ticket-alt"></i> 门票 ¥240（3人）</span></span></div></div>
-            </div>
-        </div>
-
     </div>
 
     <!-- 底栏 -->
     <div class="footer">
-        <i class="fas fa-heart" style="color:#c41a1a;"></i> 祝旅途愉快 · 与父母共享美好时光 <i class="fas fa-heart" style="color:#c41a1a;"></i><br>
-        <span style="font-size:0.8rem; opacity:0.7;">行程基于2026年7月旺季信息，费用为估算；实时天气由OpenWeatherMap提供，若加载失败则显示历史平均参考值</span>
+        <i class="fas fa-heart" style="color:#c41a1a;"></i> 祝旅途愉快 · 与家人共享美好时光 <i class="fas fa-heart" style="color:#c41a1a;"></i><br>
+        <span style="font-size:0.8rem; opacity:0.7;">实时天气由OpenWeatherMap提供，若加载失败显示参考温度</span>
     </div>
 </div>
 
 <script>
-    (function() {
-        const API_KEY = '2d5d4658506c926db2b24f92415ba64';
+    // ==================== 行程数据 ====================
+    const days = [
+        {
+            day: 'Day 1', date: '7月11日 · 周六',
+            route: '各地 → 成都（双流机场）→ 三星堆',
+            transport: '高铁 + 租车（大众新探歌）',
+            drive: '—',
+            road: '—',
+            guide: `
+                <strong>行程概要：</strong> 各自从临汾（G3139）或北京出发，乘高铁抵达成都东站/双流机场，在双流机场汇合。办理租车（大众新探歌，务必选择高底盘SUV，检查轮胎、备胎、刹车）。下午游览宽窄巷子或锦里（二选一，别逛太久），晚上品尝成都火锅，之后驱车前往广汉（约1.5h），入住德阳广汉枫渡酒店。
+                <div class="tip-box">
+                    <strong>💎 旅行锦囊：</strong><br>
+                    • 取车时务必绕车一周拍摄视频，记录已有划痕，避免还车纠纷。<br>
+                    • 成都市区交通拥堵，建议避开晚高峰（17:00-19:00）出发前往广汉。<br>
+                    • 宽窄巷子商业化较重，但第一次来成都值得一逛；锦里更适合晚上，但你们要赶路，建议下午去宽窄巷子即可。<br>
+                    • 火锅选择：不想太辣可点“鸳鸯锅”，肠胃敏感的话备好肠胃药。
+                </div>
+            `,
+            hotel: '德阳广汉枫渡酒店',
+            city: 'Guanghan',
+            altitude: '约500m',
+            dress: '夏装（短袖+薄裤），备薄外套，注意防晒',
+            avgTemp: 29
+        },
+        {
+            day: 'Day 2', date: '7月12日 · 周日',
+            route: '三星堆 → 九寨沟',
+            transport: '自驾 · 九绵高速',
+            drive: '约400km · 4.5-6h',
+            road: '九绵高速（G8513），全程高等级公路，隧道多，限速80-100km/h，2026年1月起已收费',
+            guide: `
+                <strong>行程概要：</strong> 早餐后退房，8:30前抵达三星堆博物馆（需提前5天在官方公众号预约，每晚20:00放票）。游览综合馆（青铜神树、大立人）→ 青铜馆（纵目面具），约3.5小时。午餐后13:00左右出发前往九寨沟，沿途在服务区休息2-3次，约19:00抵达沟口，入住九寨沟丽呈华廷度假酒店，当晚务必确认次日九寨沟门票已预约（阿坝旅游网）。
+                <div class="tip-box">
+                    <strong>💎 旅行锦囊：</strong><br>
+                    • 三星堆讲解器租用约30元，建议租一个，听得更明白；也可以提前在B站看纪录片做功课。<br>
+                    • 九绵高速隧道多，限速严格，不要超速，隧道内光线暗，进隧道前减速。<br>
+                    • 九寨沟沟口海拔约2000米，一般不会有高反，但第一天到达不建议剧烈运动。<br>
+                    • 九寨沟门票旺季极紧张，建议定好闹钟提前7-14天抢票，无现场售票！
+                </div>
+            `,
+            hotel: '九寨沟丽呈华廷度假酒店',
+            city: 'Jiuzhaigou',
+            altitude: '沟口约2000m，景区内最高3100m',
+            dress: '长袖T恤+薄外套，早晚加冲锋衣，防晒',
+            avgTemp: 24
+        },
+        {
+            day: 'Day 3', date: '7月13日 · 周一',
+            route: '九寨沟全天游览',
+            transport: '景区观光车 + 徒步',
+            drive: '—',
+            road: '景区内观光车循环运行，栈道良好',
+            guide: `
+                <strong>行程概要：</strong> 早餐后乘景区首班观光车（约8:00）进入。<br>
+                <strong>推荐游览顺序：</strong><br>
+                ① <strong>上午：</strong>乘车至<strong>原始森林</strong>站，沿栈道步行至<strong>天鹅海</strong>（约2km，平坦栈道，两旁是原始冷杉林和碧水），这段路游客较少，非常适合慢走拍照。<br>
+                ② 之后乘观光车至<strong>五花海</strong>，徒步下行至<strong>珍珠滩瀑布</strong>（《西游记》取景地），沿途经过孔雀河道，水色湛蓝。<br>
+                ③ <strong>中午：</strong>诺日朗中心午餐（有自助餐和简餐，建议自带干粮节省时间），乘车前往<strong>则查洼沟</strong>顶端<strong>长海</strong>（九寨沟最大海子），再步行至<strong>五彩池</strong>（小巧但色彩最艳丽）。<br>
+                ④ <strong>下午：</strong>乘车返回树正沟，徒步游览<strong>树正群海、火花海、盆景滩</strong>，约17:00出沟。<br>
+                <div class="tip-box">
+                    <strong>💎 旅行锦囊：</strong><br>
+                    • 原始森林到天鹅海这段栈道非常平坦，人少景美，强烈推荐！但注意防蚊虫。<br>
+                    • 珍珠滩瀑布水雾大，相机手机注意防水，带件防水外套或雨衣。<br>
+                    • 景区内午餐选择有限且贵，建议提前买好自热米饭、面包、水果，在诺日朗中心休息区吃。<br>
+                    • 全天步行较多，准备舒适徒步鞋，带上登山杖（景区可租借）。
+                </div>
+            `,
+            hotel: '九寨沟丽呈华廷度假酒店',
+            city: 'Jiuzhaigou',
+            altitude: '2000-3100m',
+            dress: '长袖+薄外套+冲锋衣（早晚凉），舒适徒步鞋',
+            avgTemp: 24
+        },
+        {
+            day: 'Day 4', date: '7月14日 · 周二',
+            route: '九寨沟 → 唐克（九曲黄河第一湾） → 阿坝县',
+            transport: '自驾 · 九若路',
+            drive: '约430km（含游玩）· 7-8h',
+            road: '九若路（九寨→若尔盖→唐克）盘山公路，海拔渐升；唐克→阿坝路况良好',
+            guide: `
+                <strong>行程概要：</strong> 早餐后退房，8:00出发。约13:00抵达唐克镇，午餐（镇上川菜馆不少，推荐牦牛肉面）。之后游览<strong>九曲黄河第一湾</strong>（门票+扶梯¥105/人），乘扶梯登顶观景台，俯瞰黄河九曲十八弯。游玩约2小时。15:30出发前往阿坝县，约18:00抵达，入住<strong>羊隆山居</strong>（海拔3300m），当晚务必不洗澡、不饮酒。
+                <div class="tip-box">
+                    <strong>💎 旅行锦囊：</strong><br>
+                    • 九若路盘山弯道多，且有部分路段在悬崖边，务必减速慢行，弯道鸣笛提示对向来车。<br>
+                    • 唐克海拔3500米，可能出现轻微头痛，提前准备好氧气瓶，走路放慢。<br>
+                    • 九曲黄河第一湾的扶梯很长，但登顶后风景开阔，记得多拍点照片。<br>
+                    • 阿坝县海拔3300米，羊隆山居如果有供氧设备最好，如果没有，晚上开窗通风，备好布洛芬。
+                </div>
+            `,
+            hotel: '羊隆山居（阿坝县）',
+            city: 'Aba',
+            altitude: '唐克3500m，阿坝县3300m',
+            dress: '长袖+抓绒+冲锋衣，备羽绒服，防风防晒',
+            avgTemp: 18
+        },
+        {
+            day: 'Day 5', date: '7月15日 · 周三',
+            route: '阿坝县 → 莲宝叶则 → 阿坝县',
+            transport: '自驾（景区内可开车）',
+            drive: '阿坝县→景区约1h',
+            road: '全程柏油路，景区道路良好，但海拔高，注意减速',
+            guide: `
+                <strong>行程概要：</strong> 早餐后8:00出发，约9:00抵达<strong>莲宝叶则</strong>（门票¥120/人，可现场购买）。自驾进入景区，直接开到<strong>盘羊坪</strong>或<strong>河源服务站</strong>，换乘观光车（¥15/段）前往<strong>4520观景台</strong>。之后返回河源服务站，徒步<strong>扎尕尔措</strong>环湖（约2km平路）。整个景区海拔4200-4520米，<strong>务必慢走、少说话、多休息</strong>，游览时间控制在5-6小时内。下午15:00返回阿坝县，回羊隆山居休息。
+                <div class="tip-box">
+                    <strong>💎 旅行锦囊（非常重要！）：</strong><br>
+                    • 莲宝叶则是全程海拔最高的地方，可能出现明显高反症状。<strong>必备氧气瓶（每人至少2瓶）</strong>，葡萄糖口服液也带上。<br>
+                    • 景区内没有餐厅，务必自带午餐（自热米饭、面包、巧克力）和保温杯热水。<br>
+                    • 4520观景台风极大，羽绒服或冲锋衣要穿好，帽子要带绳防止被吹飞。<br>
+                    • 如果反应强烈，不要硬撑，果断下撤至低海拔（阿坝县）。
+                </div>
+            `,
+            hotel: '羊隆山居（阿坝县，续住）',
+            city: 'Aba',
+            altitude: '4200-4520m',
+            dress: '羽绒服+防风外套，帽子手套，保暖内衣，墨镜',
+            avgTemp: 18
+        },
+        {
+            day: 'Day 6', date: '7月16日 · 周四',
+            route: '阿坝县 → 郎木寺（简单路过） → 扎尕那',
+            transport: '自驾 · G213+248国道',
+            drive: '约295km · 5.5h（阿坝-郎木寺3.5h + 郎木寺-扎尕那2h）',
+            road: 'G213国道 + 248国道，路况良好，沿途草原风光壮美',
+            guide: `
+                <strong>行程概要：</strong> 早餐后退房，8:00出发。约11:30抵达郎木寺镇，简单午餐（推荐镇上的藏餐或川菜），餐后在镇口远眺寺院外景（不进寺庙）。13:00出发前往扎尕那，约15:00抵达，<strong>入住景区民宿</strong>（两晚连住）。放下行李后在村里散步，傍晚欣赏石城日落，晚上品尝藏式牦牛肉火锅。
+                <div class="tip-box">
+                    <strong>💎 旅行锦囊：</strong><br>
+                    • 郎木寺镇海拔3300米，虽然只是路过，但也要注意不要剧烈运动。<br>
+                    • 从郎木寺到扎尕那的248国道风景极美，若尔盖草原一路相伴，可适时停车拍照，但注意靠边停车、打双闪。<br>
+                    • 扎尕那业日村是观景民宿聚集区，住宿条件参差不齐，建议提前看评价，优先选有地暖或电热毯的民宿。<br>
+                    • 扎尕那门票80元/人，3天有效，在入口处购买，保留好票据。<br>
+                    • 民宿条件有限（隔音差、水压不稳），提前做好心理预期，但为了晨雾和日落值得。
+                </div>
+            `,
+            hotel: '扎尕那景区民宿（两晚连住）',
+            city: 'Zhagana',
+            altitude: '郎木寺3300m，扎尕那3000m',
+            dress: '长袖+外套，早晚加薄羽绒，防晒',
+            avgTemp: 20
+        },
+        {
+            day: 'Day 7', date: '7月17日 · 周五',
+            route: '扎尕那全天深度游',
+            transport: '景区内步行/自驾',
+            drive: '—',
+            road: '景区内道路良好，部分栈道',
+            guide: `
+                <strong>行程概要：</strong> 早起（约5:30）前往<strong>达日观景台</strong>拍摄扎尕那标志性的晨雾日出——这是扎尕那的灵魂瞬间！之后回民宿早餐。9:00出发徒步<strong>仙女滩</strong>（往返约2小时），在草甸上俯瞰石城全景，非常出片。午餐后下午二选一：① <strong>润吾沟</strong>（原始峡谷，木栈道往返约3小时，体力消耗较大，量力而行）；② <strong>业日村观景台</strong>（轻松，走几步即到，适合放松）。晚上在民宿休息，看星空（扎尕那的星空极美）。
+                <div class="tip-box">
+                    <strong>💎 旅行锦囊：</strong><br>
+                    • 达日观景台早上极冷（5-8℃），务必穿羽绒服或冲锋衣，戴帽子手套。<br>
+                    • 仙女滩徒步是缓坡上行，对体力有一定要求，慢慢走，走不动可提前返回。<br>
+                    • 润吾沟较为原始，部分路段有溪水，路面湿滑，不建议走完全程，走到第一个瀑布即可折返。<br>
+                    • 村里晚上可能停电或水压不稳定，提前给充电宝充满电，准备湿巾。<br>
+                    • 扎尕那的星空非常壮观，晚上如果没有云，可以在院子里看星星。
+                </div>
+            `,
+            hotel: '扎尕那景区民宿（两晚连住）',
+            city: 'Zhagana',
+            altitude: '3000m',
+            dress: '长袖+薄外套+冲锋衣，徒步鞋，防晒，早晨看日出要穿羽绒服',
+            avgTemp: 20
+        },
+        {
+            day: 'Day 8', date: '7月18日 · 周六',
+            route: '扎尕那 → 洛克之路 → 夏河（经合作）',
+            transport: '自驾（洛克之路）',
+            drive: '约250km · 5-6h（扎尕那→扎古录镇→合作→夏河）',
+            road: '洛克之路：光盖山段约65km非铺装砂石路，炮弹坑、碎石、临崖急弯；全程无信号；必须高底盘SUV；出发前在迭部县加满油，下载离线地图。',
+            guide: `
+                <strong>行程概要：</strong> 早餐后退房，8:00出发穿越<strong>洛克之路</strong>（扎尕那→扎古录镇→合作）。沿途经过光盖山石峰、高山草甸、峡谷，最高垭口约4200米，风景壮丽但路况复杂。约13:00抵达<strong>合作市</strong>午餐（甘南州首府，选择丰富）。14:30出发前往夏河，16:00抵达夏河雅培林卡营地民宿（位于桑科草原旁），办理入住。傍晚可散步去拉卜楞寺外围转经筒长廊（免费），感受藏传佛教氛围。
+                <div class="tip-box">
+                    <strong>💎 旅行锦囊（洛克之路重中之重！）：</strong><br>
+                    • <strong>车辆必须高底盘SUV！</strong> 大众新探歌底盘高度尚可，但遇到大坑一定要减速慢行，避免托底。<br>
+                    • 出发前在迭部县加满油，沿途无加油站，无补给。<br>
+                    • <strong>全程无手机信号</strong>，提前下载“甘肃+四川”离线地图（高德或百度），并打开GPS定位。<br>
+                    • 路况以碎石路和炮弹坑为主，晴天尘土大，建议关窗开内循环；雨天极易打滑，若遇雨建议取消穿越。<br>
+                    • 垭口风极大，下车拍照时穿好羽绒服，帽子要系紧。<br>
+                    • 如果晕车，提前吃晕车药，因为路面颠簸，弯道多。<br>
+                    • 拉卜楞寺转经筒长廊约3.5公里，傍晚去走一小段即可，不要贪多，注意节约体力。
+                </div>
+            `,
+            hotel: '夏河雅培林卡营地民宿',
+            city: 'Xiahe',
+            altitude: '夏河3000m，洛克之路垭口约4000m',
+            dress: '长袖+抓绒+冲锋衣，备羽绒服（垭口风大），防晒',
+            avgTemp: 18
+        },
+        {
+            day: 'Day 9', date: '7月19日 · 周日',
+            route: '夏河 → 甘加秘境 → 兰州 → 返程',
+            transport: '自驾 + 高铁',
+            drive: '夏河→甘加秘境30min + 夏河→兰州3.5h',
+            road: '312国道 → 兰海高速，路况良好',
+            guide: `
+                <strong>行程概要：</strong> 早餐后退房，8:00出发前往<strong>甘加秘境</strong>（距夏河县城约30km，门票¥50-80/人，含八角古城、白石崖、甘加草原）。自驾进入景区，依次游览<strong>八角古城</strong>（千年十字形古城）→ <strong>白石崖</strong>（长约15公里的白色悬崖，拍照绝佳）→ <strong>甘加草原</strong>（可在草原上散步）。游览约2.5小时。11:30返回夏河，午餐后驱车前往兰州（约3.5小时），15:00抵达兰州，办理还车（注意检查车况，避免还车纠纷）。之后乘G352（16:00兰州西→西安北换乘）返程，或直接乘坐G352至北京西。
+                <div class="tip-box">
+                    <strong>💎 旅行锦囊：</strong><br>
+                    • 甘加秘境可以自驾进入，省去景交车费用，而且更自由。<br>
+                    • 八角古城内部可以步行参观，路面平整，适合慢走；白石崖适合远拍，在观景台停留即可。<br>
+                    • 兰州市区易堵车，建议留出至少1小时从酒店到高铁站的弹性时间。<br>
+                    • 还车前记得加满油（租车公司一般要求满油还车），并拍下油表照片留证。<br>
+                    • 高铁票务必提前购买，7月是旺季，西安北换乘预留1小时以上时间。
+                </div>
+            `,
+            hotel: '—',
+            city: 'Lanzhou',
+            altitude: '夏河3000m，兰州1500m',
+            dress: '夏装，防晒',
+            avgTemp: 26
+        }
+    ];
 
-        // 城市配置：DOM元素ID，城市名（用于API查询），显示名称，历史平均气温（备选）
-        const cities = [
-            { id: 'weather-guanghan', name: 'Guanghan', label: '广汉', avgTemp: 29 },
-            { id: 'weather-jiuzhaigou', name: 'Jiuzhaigou', label: '九寨沟', avgTemp: 24 },
-            { id: 'weather-jiuzhaigou2', name: 'Jiuzhaigou', label: '九寨沟', avgTemp: 24 },
-            { id: 'weather-tangke', name: 'Tangke', label: '唐克', avgTemp: 20 },
-            { id: 'weather-zhagana', name: 'Zhagana', label: '扎尕那', avgTemp: 20 },
-            { id: 'weather-zhagana2', name: 'Zhagana', label: '扎尕那', avgTemp: 20 },
-            { id: 'weather-xiahe', name: 'Xiahe', label: '夏河', avgTemp: 18 },
-            { id: 'weather-lanzhou', name: 'Lanzhou', label: '兰州', avgTemp: 26 }
-        ];
+    // ==================== 天气与渲染 ====================
+    const API_KEY = '2d5d4658506c926db2b24f92415ba64';
 
-        // 获取天气并更新DOM
-        function fetchWeather(cityId, cityName, label, avgTemp) {
-            const el = document.getElementById(cityId);
+    function renderCards() {
+        const container = document.getElementById('timeline');
+        let html = '';
+        days.forEach((d, idx) => {
+            const weatherId = `weather-${idx}`;
+            html += `
+                <div class="day-card">
+                    <div class="day-header">
+                        <span class="day-badge">${d.day}</span>
+                        <span class="date">${d.date}</span>
+                        <div class="route"><i class="fas fa-route"></i> ${d.route}</div>
+                    </div>
+                    <div class="day-body">
+                        <div class="item"><span class="label"><i class="fas fa-car"></i> 交通</span><div class="value">${d.transport}</div></div>
+                        <div class="item"><span class="label"><i class="fas fa-clock"></i> 车程</span><div class="value">${d.drive}</div></div>
+                        <div class="item"><span class="label"><i class="fas fa-mountain"></i> 海拔</span><div class="value">${d.altitude}</div></div>
+                        <div class="item"><span class="label"><i class="fas fa-tshirt"></i> 穿衣指南</span><div class="value">${d.dress}</div></div>
+                        <div class="item full-width"><span class="label"><i class="fas fa-road"></i> 路况</span><div class="value">${d.road}</div></div>
+                        <div class="item full-width"><span class="label"><i class="fas fa-umbrella-beach"></i> 游玩攻略</span><div class="value">${d.guide}</div></div>
+                        <div class="item"><span class="label"><i class="fas fa-hotel"></i> 住宿</span><div class="value">${d.hotel}</div></div>
+                        <div class="item"><span class="label"><i class="fas fa-cloud-sun"></i> 天气</span><div class="value"><div id="${weatherId}" class="weather-box weather-loading"><i class="fas fa-spinner fa-pulse"></i> 加载中…</div></div></div>
+                    </div>
+                </div>
+            `;
+        });
+        container.innerHTML = html;
+
+        // 获取天气
+        days.forEach((d, idx) => {
+            const el = document.getElementById(`weather-${idx}`);
             if (!el) return;
-
-            const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName},CN&appid=${API_KEY}&units=metric&lang=zh_cn`;
-
-            fetch(url, { timeout: 8000 })
-                .then(response => {
-                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                    return response.json();
+            const city = d.city;
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},CN&appid=${API_KEY}&units=metric&lang=zh_cn`;
+            fetch(url)
+                .then(res => {
+                    if (!res.ok) throw new Error('API error');
+                    return res.json();
                 })
                 .then(data => {
                     const temp = Math.round(data.main.temp);
                     const desc = data.weather[0].description;
                     const icon = data.weather[0].icon;
-                    const iconUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
-
+                    const descMap = {
+                        'clear sky': '晴', 'few clouds': '少云', 'scattered clouds': '多云',
+                        'broken clouds': '多云', 'overcast clouds': '阴',
+                        'light rain': '小雨', 'moderate rain': '中雨', 'heavy rain': '大雨',
+                        'shower rain': '阵雨', 'rain': '雨', 'thunderstorm': '雷阵雨',
+                        'snow': '雪', 'mist': '薄雾', 'fog': '雾'
+                    };
+                    const chineseDesc = descMap[desc] || desc;
                     el.innerHTML = `
-                        <img src="${iconUrl}" alt="${desc}" onerror="this.style.display='none'">
+                        <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="${desc}">
                         <span class="temp">${temp}°C</span>
-                        <span class="desc">${desc}</span>
+                        <span class="desc">${chineseDesc}</span>
                     `;
                     el.classList.remove('weather-loading');
                 })
-                .catch(error => {
-                    console.warn(`获取${label}天气失败:`, error);
-                    // 显示备选历史平均温度
-                    el.innerHTML = `
-                        <span class="weather-fallback"><i class="fas fa-cloud-sun"></i> 参考7月均温 ${avgTemp}°C</span>
-                    `;
+                .catch(() => {
+                    el.innerHTML = `<span class="weather-fallback">⛅ 约${d.avgTemp}°C（参考）</span>`;
                     el.classList.remove('weather-loading');
                 });
-        }
+        });
+    }
 
-        // 逐一请求
-        cities.forEach(c => fetchWeather(c.id, c.name, c.label, c.avgTemp));
-    })();
+    renderCards();
 </script>
 </body>
 </html>
